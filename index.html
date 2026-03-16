@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bookverse ✨ — Vintage Indie Bookstore, Kathmandu</title>
+<meta name="description" content="Bookverse — a cozy vintage indie bookstore at Civil Mall, Level 4, Kathmandu. Delivering stories across Nepal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5EDE1;--bg2:#EDE3D5;--burg:#4A2C2A;--burg2:#3A1E1C;--burg3:#6B3F3D;
+  --gold:#D4AF77;--gold2:#C49A5A;--sage:#8A9A8E;--cream:#FDF8F2;
+  --text:#2A1A18;--text2:#6B4A47;--white:#FFFEF9;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--burg3);border-radius:3px}
+
+/* ── ANNOUNCEMENT BANNER ── */
+#banner{background:var(--burg);color:var(--gold);padding:9px 40px 9px 16px;font-size:13px;font-weight:600;letter-spacing:.3px;position:relative;overflow:hidden;min-height:36px}
+.marquee-wrap{overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-block;animation:marquee 28s linear infinite}
+.marquee-track span{padding:0 60px}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+#banner-close{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--gold);cursor:pointer;font-size:18px;line-height:1;padding:4px 6px;border-radius:50%;transition:background .2s}
+#banner-close:hover{background:rgba(255,255,255,.15)}
+
+/* ── NAVBAR ── */
+nav{position:fixed;left:0;right:0;z-index:100;transition:all .3s;top:36px}
+nav.scrolled{background:rgba(245,237,225,.98);backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(74,44,42,.1)}
+nav.banner-hidden{top:0}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--burg);text-decoration:none;display:flex;align-items:center;gap:8px;cursor:pointer;background:none;border:none}
+.nav-logo:hover{color:var(--gold2)}
+.nav-links{display:flex;gap:28px}
+.nav-links button{background:none;border:none;color:var(--burg);font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;cursor:pointer;padding:4px 0;border-bottom:2px solid transparent;transition:all .2s}
+.nav-links button:hover{color:var(--gold2);border-color:var(--gold2)}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-social a{display:inline-flex;padding:6px;border-radius:50%;transition:background .2s;color:var(--burg)}
+.nav-social a:hover{background:var(--bg2)}
+.search-wrap{display:flex;align-items:center;background:var(--bg2);border-radius:24px;padding:6px 14px;gap:6px}
+.search-wrap input{background:none;border:none;outline:none;color:var(--burg);font-family:'Cormorant Garamond',serif;font-size:14px;width:130px}
+.search-wrap input::placeholder{color:var(--text2)}
+.cart-btn{position:relative;background:none;border:none;padding:8px;cursor:pointer;border-radius:50%;transition:background .2s;color:var(--burg)}
+.cart-btn:hover{background:var(--bg2)}
+.cart-count{position:absolute;top:-2px;right:-2px;background:var(--gold);color:var(--burg);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.cart-btn.bounce{animation:cartBounce .5s ease}
+@keyframes cartBounce{0%,100%{transform:scale(1)}30%{transform:scale(1.3)}60%{transform:scale(.9)}}
+.btn-visit{background:var(--burg);color:var(--cream);border:none;padding:8px 16px;border-radius:24px;font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .2s}
+.btn-visit:hover{background:var(--burg2);transform:translateY(-1px)}
+/* Hamburger */
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;border-radius:8px;transition:background .2s}
+.hamburger:hover{background:var(--bg2)}
+.hamburger span{display:block;width:22px;height:2px;background:var(--burg);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+/* Mobile menu */
+.mobile-menu{position:fixed;top:0;left:0;right:0;bottom:0;background:var(--cream);z-index:99;transform:translateX(-100%);transition:transform .35s cubic-bezier(.77,0,.175,1);padding:100px 32px 40px;display:flex;flex-direction:column;gap:0}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu button,.mobile-menu a{display:block;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--bg2);padding:18px 0;font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--burg);cursor:pointer;text-decoration:none;transition:color .2s}
+.mobile-menu button:hover,.mobile-menu a:hover{color:var(--gold2)}
+.mobile-menu-socials{display:flex;gap:16px;margin-top:32px;padding-top:24px;border-top:1px solid var(--bg2)}
+.mobile-menu-socials a{display:inline-flex;align-items:center;gap:8px;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:var(--burg);text-decoration:none;background:var(--bg2);padding:10px 16px;border-radius:24px;border:none;width:auto}
+.mobile-menu-bottom{margin-top:auto;padding-top:20px}
+.mobile-signup-btn{width:100%;background:var(--burg);color:var(--cream);border:none;padding:14px;border-radius:12px;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;cursor:pointer;text-align:center;margin-bottom:10px;display:block;text-decoration:none}
+.mobile-login-btn{width:100%;background:transparent;color:var(--burg);border:1.5px solid var(--burg);padding:13px;border-radius:12px;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;cursor:pointer;text-align:center;display:block;text-decoration:none}
+
+/* ── HERO CAROUSEL ── */
+.hero{position:relative;height:100vh;min-height:560px;overflow:hidden;margin-top:104px}
+.slides-track{display:flex;transition:transform .7s cubic-bezier(.77,0,.175,1);height:100%}
+.slide{min-width:100%;height:100%;position:relative;display:flex;align-items:center;overflow:hidden}
+.slide-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.slide-overlay{position:absolute;inset:0}
+.slide-content{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0 40px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.slide-text{flex:1}
+.badge{display:inline-block;padding:5px 16px;border-radius:24px;font-size:12px;font-weight:700;letter-spacing:1px;margin-bottom:16px}
+.slide h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:1.15;margin-bottom:16px}
+.slide p{font-size:17px;margin-bottom:28px;max-width:440px;line-height:1.7}
+.btn-primary{background:var(--burg);color:var(--cream);border:none;padding:13px 28px;border-radius:32px;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .2s;text-decoration:none}
+.btn-primary:hover{background:var(--burg2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(74,44,42,.3)}
+.btn-gold{background:var(--gold);color:var(--burg);border:none;padding:13px 28px;border-radius:32px;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,175,119,.4)}
+.btn-outline{background:transparent;color:var(--cream);border:2px solid var(--cream);padding:11px 26px;border-radius:32px;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline:hover{background:var(--cream);color:var(--burg)}
+.floating-books{display:flex;gap:16px;flex-shrink:0}
+.float-book{position:relative;transition:transform .3s}
+.float-book:hover{transform:translateY(-8px) rotate(0deg)!important}
+.float-book img{width:100px;height:150px;object-fit:cover;border-radius:6px;box-shadow:0 12px 32px rgba(0,0,0,.4)}
+.rank-badge{position:absolute;top:-10px;left:-10px;width:30px;height:30px;border-radius:50%;background:var(--burg);color:var(--cream);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.new-badge{position:absolute;top:-8px;right:-8px;background:var(--gold);color:var(--burg);font-size:10px;font-weight:700;padding:3px 8px;border-radius:12px}
+.countdown{display:flex;gap:12px;margin-bottom:24px;justify-content:center}
+.count-box{background:rgba(74,44,42,.5);backdrop-filter:blur(8px);padding:10px 16px;border-radius:10px;text-align:center;min-width:64px}
+.count-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--gold);display:block}
+.count-label{font-size:10px;color:rgba(255,255,255,.7);letter-spacing:1px}
+/* Dots */
+.carousel-dots{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;transition:all .3s}
+.dot.active{background:var(--gold);width:24px;border-radius:4px}
+.carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:18px}
+.carousel-arrow:hover{background:rgba(255,255,255,.3)}
+.carousel-arrow.left{left:20px}
+.carousel-arrow.right{right:20px}
+
+/* ── GENRE PILLS ── */
+.genre-section{padding:32px 0;background:var(--cream)}
+.genre-section-inner{max-width:1280px;margin:0 auto;padding:0 24px}
+.genre-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;-ms-overflow-style:none;scrollbar-width:none}
+.genre-scroll::-webkit-scrollbar{display:none}
+.genre-pill{flex-shrink:0;padding:9px 20px;border-radius:24px;border:1.5px solid var(--burg);background:transparent;color:var(--burg);font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap}
+.genre-pill:hover{background:var(--bg2)}
+.genre-pill.active{background:var(--burg);color:var(--cream)}
+
+/* ── SECTION HEADERS ── */
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.section-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--burg);display:flex;align-items:center;gap:10px}
+.see-all{background:none;border:none;color:var(--gold2);font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:4px}
+.see-all:hover{color:var(--burg)}
+
+/* ── HORIZONTAL BOOK ROWS ── */
+.h-section{padding:40px 0;background:var(--bg)}
+.h-section-inner{max-width:1280px;margin:0 auto;padding:0 24px}
+.h-scroll-wrap{position:relative}
+.h-scroll{display:flex;gap:20px;overflow-x:auto;padding:12px 4px;scroll-behavior:smooth;-ms-overflow-style:none;scrollbar-width:none}
+.h-scroll::-webkit-scrollbar{display:none}
+.h-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;background:var(--cream);border:1.5px solid var(--burg);color:var(--burg);width:36px;height:36px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s;box-shadow:0 4px 12px rgba(74,44,42,.15)}
+.h-arrow:hover{background:var(--burg);color:var(--cream)}
+.h-arrow.left{left:-12px}
+.h-arrow.right{right:-12px}
+
+/* ── BOOK CARD ── */
+.book-card{flex-shrink:0;width:180px;background:var(--cream);border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(74,44,42,.08);transition:all .3s;position:relative;cursor:pointer}
+.book-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(212,175,119,.3)}
+.book-card.grid-card{width:100%}
+.book-cover{width:100%;height:220px;object-fit:cover;display:block}
+.book-cover-placeholder{width:100%;height:220px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:rgba(255,255,255,.9);text-align:center;padding:12px;line-height:1.3}
+.card-badges{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:4px}
+.badge-new{background:var(--gold);color:var(--burg);font-size:9px;font-weight:700;padding:3px 7px;border-radius:10px;letter-spacing:.5px}
+.badge-bs{background:var(--burg);color:var(--cream);font-size:9px;font-weight:700;padding:3px 7px;border-radius:10px}
+.badge-disc{position:absolute;top:10px;right:10px;background:#c0392b;color:#fff;font-size:9px;font-weight:700;padding:3px 7px;border-radius:10px}
+.card-body{padding:12px}
+.card-title{font-family:'Playfair Display',serif;font-size:14px;font-weight:600;color:var(--burg);margin-bottom:3px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-author{font-size:12px;color:var(--text2);margin-bottom:6px}
+.card-rating{display:flex;align-items:center;gap:4px;margin-bottom:6px}
+.stars{color:var(--gold);font-size:11px}
+.rating-num{font-size:11px;color:var(--text2)}
+.card-price{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.price-sale{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--burg)}
+.price-mrp{font-size:12px;color:#999;text-decoration:line-through}
+.stock-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:3px 8px;border-radius:10px;margin-bottom:8px}
+.stock-badge.in{background:#d4edda;color:#155724}
+.stock-badge.out{background:#f8d7da;color:#721c24}
+.urgency{font-size:10px;color:#e74c3c;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:4px}
+.card-actions{display:flex;gap:6px}
+.btn-cart{flex:1;background:var(--burg);color:var(--cream);border:none;padding:8px;border-radius:8px;font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:4px}
+.btn-cart:hover{background:var(--burg2)}
+.btn-cart.added{background:#27ae60}
+.btn-notify{flex:1;background:var(--bg2);color:var(--burg);border:1.5px solid var(--burg);padding:8px;border-radius:8px;font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-notify:hover{background:var(--burg);color:var(--cream)}
+
+/* ── LIBRARY SECTION ── */
+.library-section{padding:48px 0;background:var(--bg2)}
+.library-inner{max-width:1280px;margin:0 auto;padding:0 24px}
+.library-search{display:flex;align-items:center;background:var(--cream);border-radius:32px;padding:10px 20px;gap:10px;max-width:440px;margin-bottom:28px;box-shadow:0 2px 12px rgba(74,44,42,.06)}
+.library-search input{flex:1;background:none;border:none;outline:none;font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--burg)}
+.book-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:24px}
+
+/* ── BOOK EXTRAS (bookmark/giftwrap) ── */
+.extras-section{padding:10px 0 0;border-top:1px solid var(--bg2)}
+.extras-toggle{display:flex;gap:8px;flex-wrap:wrap}
+.extras-btn{background:none;border:1px solid var(--burg);color:var(--burg);font-family:'Cormorant Garamond',serif;font-size:11px;padding:4px 10px;border-radius:12px;cursor:pointer;transition:all .2s}
+.extras-btn:hover,.extras-btn.active{background:var(--burg);color:var(--cream)}
+.extras-panel{background:var(--bg);border-radius:8px;padding:10px;margin-top:8px}
+.extras-label{font-size:11px;color:var(--text2);margin-bottom:8px;font-weight:600}
+.bookmark-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.bookmark-opt{border:1.5px solid transparent;border-radius:6px;padding:5px;cursor:pointer;transition:all .2s;text-align:center;background:var(--cream)}
+.bookmark-opt:hover{border-color:var(--gold)}
+.bookmark-opt.selected{border-color:var(--burg);background:var(--bg2)}
+.bookmark-color{width:100%;height:32px;border-radius:4px;margin-bottom:4px}
+.bookmark-name{font-size:9px;color:var(--burg);font-weight:600}
+.wrap-grid{display:flex;gap:8px}
+.wrap-opt{flex:1;border:1.5px solid transparent;border-radius:8px;padding:8px 4px;cursor:pointer;text-align:center;background:var(--cream);transition:all .2s}
+.wrap-opt:hover{border-color:var(--gold)}
+.wrap-opt.selected{border-color:var(--burg);background:var(--bg2)}
+.wrap-swatch{width:100%;height:28px;border-radius:4px;margin-bottom:4px}
+.wrap-name{font-size:9px;color:var(--burg);font-weight:600}
+.msg-wrap{margin-top:8px}
+.msg-wrap textarea{width:100%;border:1px solid var(--bg2);border-radius:8px;padding:7px;font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--burg);background:var(--cream);resize:none;outline:none}
+.char-count{font-size:10px;color:var(--text2);text-align:right}
+
+/* ── CART SIDEBAR ── */
+.cart-overlay{position:fixed;inset:0;background:rgba(42,26,24,.5);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(4px)}
+.cart-overlay.open{opacity:1;pointer-events:all}
+.cart-sidebar{position:fixed;right:0;top:0;bottom:0;width:420px;max-width:100vw;background:var(--cream);z-index:201;transform:translateX(100%);transition:transform .35s cubic-bezier(.77,0,.175,1);display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(74,44,42,.15)}
+.cart-sidebar.open{transform:translateX(0)}
+.cart-header{padding:20px 24px;border-bottom:1px solid var(--bg2);display:flex;align-items:center;justify-content:space-between}
+.cart-header h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--burg)}
+.close-btn{background:none;border:none;cursor:pointer;color:var(--burg);font-size:20px;padding:4px;border-radius:50%;transition:background .2s;display:flex;align-items:center}
+.close-btn:hover{background:var(--bg2)}
+.cart-items{flex:1;overflow-y:auto;padding:16px 24px}
+.cart-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--bg2)}
+.cart-item-img{width:52px;height:72px;object-fit:cover;border-radius:6px;flex-shrink:0}
+.cart-item-img-ph{width:52px;height:72px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;text-align:center;padding:4px}
+.cart-item-info{flex:1;min-width:0}
+.cart-item-title{font-family:'Playfair Display',serif;font-size:14px;color:var(--burg);margin-bottom:3px}
+.cart-item-author{font-size:12px;color:var(--text2);margin-bottom:4px}
+.cart-item-addon{font-size:11px;color:var(--sage);margin-bottom:6px}
+.qty-control{display:flex;align-items:center;gap:8px}
+.qty-btn{background:var(--bg2);border:none;width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:background .2s;color:var(--burg)}
+.qty-btn:hover{background:var(--burg);color:var(--cream)}
+.qty-num{font-weight:600;font-size:14px;color:var(--burg);min-width:20px;text-align:center}
+.remove-btn{background:none;border:none;color:#c0392b;cursor:pointer;font-size:16px;padding:4px;margin-left:auto}
+.item-price{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--burg)}
+.delivery-bar{padding:14px 24px}
+.delivery-progress{background:var(--bg2);border-radius:8px;padding:12px}
+.delivery-text{font-size:13px;color:var(--text2);margin-bottom:8px}
+.progress-bg{background:var(--bg);border-radius:4px;height:6px;overflow:hidden}
+.progress-fill{background:var(--gold);height:100%;border-radius:4px;transition:width .5s ease}
+.free-label{font-size:12px;color:#27ae60;font-weight:600;margin-top:6px}
+.cart-footer{padding:16px 24px;border-top:1px solid var(--bg2)}
+.subtotal-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.subtotal-label{font-size:15px;color:var(--text2)}
+.subtotal-val{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--burg)}
+.btn-checkout{width:100%;background:var(--burg);color:var(--cream);border:none;padding:14px;border-radius:12px;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-checkout:hover{background:var(--burg2);transform:translateY(-1px)}
+.trust-badges{display:flex;justify-content:center;gap:16px;margin-top:12px}
+.trust-badge{font-size:11px;color:var(--text2);display:flex;align-items:center;gap:4px}
+.empty-cart{text-align:center;padding:60px 20px;color:var(--text2)}
+.empty-cart svg{margin:0 auto 16px;display:block;opacity:.3}
+.empty-cart p{font-size:16px;margin-bottom:16px}
+
+/* ── CHECKOUT MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(42,26,24,.6);z-index:300;display:flex;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-box{background:var(--cream);border-radius:20px;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px rgba(42,26,24,.3);transform:translateY(20px);transition:transform .3s}
+.modal-overlay.open .modal-box{transform:translateY(0)}
+.modal-header{padding:24px 28px 16px;border-bottom:1px solid var(--bg2);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--cream);z-index:5}
+.modal-header h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--burg)}
+.modal-body{padding:24px 28px}
+.form-group{margin-bottom:16px}
+.form-label{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:6px;letter-spacing:.3px}
+.form-input{width:100%;padding:11px 14px;border:1.5px solid var(--bg2);border-radius:10px;font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--burg);background:var(--bg);outline:none;transition:border-color .2s}
+.form-input:focus{border-color:var(--gold)}
+.payment-section{margin:20px 0}
+.payment-label{font-size:14px;font-weight:700;color:var(--burg);margin-bottom:12px}
+.payment-options{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.payment-card{border:2px solid var(--bg2);border-radius:12px;padding:12px;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--cream)}
+.payment-card:hover{border-color:var(--gold)}
+.payment-card.selected{border-color:var(--burg)}
+.payment-card.esewa.selected{background:#60BB46;border-color:#60BB46}
+.payment-card.khalti.selected{background:#5C2D91;border-color:#5C2D91}
+.payment-card.cod.selected{background:var(--burg);border-color:var(--burg)}
+.payment-name{font-size:12px;font-weight:700;transition:color .2s}
+.payment-card.selected .payment-name{color:#fff}
+.order-summary{background:var(--bg);border-radius:12px;padding:14px;margin-bottom:20px}
+.order-row{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px;color:var(--text2)}
+.order-total{display:flex;justify-content:space-between;font-size:15px;font-weight:700;color:var(--burg);border-top:1px solid var(--bg2);padding-top:10px;margin-top:10px}
+.btn-place{width:100%;background:var(--burg);color:var(--cream);border:none;padding:15px;border-radius:12px;font-family:'Playfair Display',serif;font-size:17px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:4px}
+.btn-place:hover{background:var(--burg2);transform:translateY(-1px)}
+
+/* ── SUCCESS MODAL ── */
+.success-modal{text-align:center;padding:40px 28px}
+.success-icon{font-size:64px;margin-bottom:20px;display:block}
+.success-modal h2{font-family:'Playfair Display',serif;font-size:28px;color:var(--burg);margin-bottom:12px}
+.success-modal p{font-size:16px;color:var(--text2);margin-bottom:24px;line-height:1.7}
+.confetti-piece{position:fixed;width:8px;height:8px;border-radius:50%;animation:fall 3s ease-out forwards;pointer-events:none;z-index:999}
+@keyframes fall{0%{transform:translateY(-100px) rotate(0);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+
+/* ── ABOUT SECTION ── */
+.about-section{background:var(--burg);color:var(--cream);padding:72px 0}
+.about-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about-badge{display:inline-block;background:rgba(212,175,119,.2);color:var(--gold);border:1px solid rgba(212,175,119,.3);padding:5px 16px;border-radius:24px;font-size:13px;margin-bottom:20px}
+.about-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;margin-bottom:20px;color:var(--cream)}
+.about-section p{font-size:17px;line-height:1.8;color:rgba(253,248,242,.8);margin-bottom:28px}
+.about-socials{display:flex;gap:12px;flex-wrap:wrap}
+.social-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:24px;font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s}
+.social-btn.ig{background:var(--cream);color:var(--burg)}
+.social-btn.ig:hover{background:var(--gold)}
+.social-btn.wa{border:2px solid var(--cream);color:var(--cream)}
+.social-btn.wa:hover{background:var(--cream);color:var(--burg)}
+.store-status-box{background:rgba(255,255,255,.07);border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,.1)}
+.status-indicator{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.status-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.status-dot.open{background:#2ecc71;box-shadow:0 0 0 0 rgba(46,204,113,.4);animation:pulse-dot 2s infinite}
+.status-dot.closed{background:#e74c3c}
+.status-dot.soon{background:#f39c12;animation:pulse-dot 1.5s infinite}
+@keyframes pulse-dot{0%{box-shadow:0 0 0 0 rgba(46,204,113,.4)}70%{box-shadow:0 0 0 10px rgba(46,204,113,0)}100%{box-shadow:0 0 0 0 rgba(46,204,113,0)}}
+.status-text{font-size:16px;font-weight:700;color:var(--cream)}
+.status-next{font-size:13px;color:rgba(253,248,242,.6)}
+.hours-grid{display:grid;gap:8px;margin-bottom:16px}
+.hour-row{display:flex;justify-content:space-between;font-size:14px;color:rgba(253,248,242,.8);padding:6px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.maps-embed{border-radius:12px;overflow:hidden;margin-top:16px}
+.maps-embed iframe{display:block;width:100%;border:0}
+.directions-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:var(--gold);color:var(--burg);padding:9px 18px;border-radius:24px;font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s}
+.directions-btn:hover{background:var(--gold2);transform:translateY(-1px)}
+
+/* ── FOOTER ── */
+footer{background:#2A1E1C;color:rgba(253,248,242,.75);padding:56px 0 28px}
+.footer-inner{max-width:1280px;margin:0 auto;padding:0 24px}
+.footer-socials{text-align:center;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-socials h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--cream);margin-bottom:20px}
+.footer-social-icons{display:flex;justify-content:center;gap:16px}
+.footer-social-icon{display:flex;align-items:center;gap:8px;padding:10px 20px;border-radius:24px;font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;text-decoration:none;color:var(--cream);transition:all .25s;border:1px solid rgba(255,255,255,.15)}
+.footer-social-icon:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.footer-social-icon.ig:hover{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)}
+.footer-social-icon.tt:hover{background:#000}
+.footer-social-icon.fb:hover{background:#1877F2}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+.footer-brand{font-family:'Playfair Display',serif;font-size:20px;color:var(--cream);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.footer-tagline{font-size:14px;line-height:1.7;margin-bottom:0}
+.footer-col h4{font-family:'Playfair Display',serif;font-size:15px;color:var(--cream);margin-bottom:14px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:8px;font-size:14px}
+.footer-col button{background:none;border:none;color:rgba(253,248,242,.7);font-family:'Cormorant Garamond',serif;font-size:14px;cursor:pointer;padding:0;transition:color .2s}
+.footer-col button:hover{color:var(--gold)}
+.footer-col a{color:rgba(253,248,242,.7);text-decoration:none;transition:color .2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-col li{display:flex;align-items:center;gap:8px}
+.payment-row{border-top:1px solid rgba(255,255,255,.08);padding:20px 0;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.payment-row span{font-size:13px}
+.esewa-logo{background:#60BB46;color:#fff;padding:5px 12px;border-radius:6px;font-size:13px;font-weight:700;letter-spacing:.3px}
+.khalti-logo{background:#5C2D91;color:#fff;padding:5px 12px;border-radius:6px;font-size:13px;font-weight:700;letter-spacing:.3px}
+.cod-logo{background:rgba(255,255,255,.1);color:var(--cream);padding:5px 12px;border-radius:6px;font-size:13px;font-weight:600}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:gap;font-size:13px}
+.seller-login-btn{background:none;border:none;color:rgba(253,248,242,.35);font-family:'Cormorant Garamond',serif;font-size:12px;cursor:pointer;transition:color .2s}
+.seller-login-btn:hover{color:var(--gold)}
+
+/* ── FLOATING ELEMENTS ── */
+.floating-wa{position:fixed;bottom:24px;right:24px;z-index:50;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.4);transition:all .25s;cursor:pointer;text-decoration:none}
+.floating-wa:hover{transform:scale(1.1);box-shadow:0 8px 24px rgba(37,211,102,.5)}
+.floating-chat{position:fixed;bottom:88px;right:24px;z-index:50;width:52px;height:52px;background:var(--burg);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(74,44,42,.3);transition:all .25s;cursor:pointer;border:none}
+.floating-chat:hover{transform:scale(1.1);background:var(--burg2)}
+.floating-social{position:fixed;left:16px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;gap:8px;background:rgba(245,237,225,.92);backdrop-filter:blur(8px);padding:10px;border-radius:32px;box-shadow:0 4px 20px rgba(74,44,42,.12);opacity:0;pointer-events:none;transition:opacity .4s}
+.floating-social.visible{opacity:1;pointer-events:all}
+.floating-social a{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:all .2s;color:var(--burg)}
+.floating-social a:hover{background:var(--bg2)}
+.chat-tooltip{position:absolute;right:calc(100% + 10px);top:50%;transform:translateY(-50%);white-space:nowrap;background:var(--burg);color:var(--cream);padding:5px 12px;border-radius:12px;font-size:12px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s}
+.floating-chat:hover .chat-tooltip{opacity:1}
+
+/* ── CHATBOT PANEL ── */
+.chat-panel{position:fixed;bottom:24px;right:24px;width:380px;max-width:calc(100vw - 32px);height:520px;max-height:calc(100vh - 80px);background:var(--cream);border-radius:20px;box-shadow:0 16px 48px rgba(42,26,24,.25);z-index:51;display:flex;flex-direction:column;overflow:hidden;transform:translateY(20px) scale(.97);opacity:0;pointer-events:none;transition:all .3s cubic-bezier(.34,1.56,.64,1)}
+.chat-panel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:all}
+.chat-head{background:var(--burg);padding:16px 18px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.chat-head-info{display:flex;align-items:center;gap:10px}
+.chat-head-title{font-family:'Playfair Display',serif;font-size:15px;color:var(--cream)}
+.chat-head-sub{font-size:11px;color:rgba(253,248,242,.6)}
+.chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}
+.chat-msg{display:flex}
+.chat-msg.user{justify-content:flex-end}
+.chat-bubble{max-width:78%;padding:10px 14px;border-radius:16px;font-size:14px;line-height:1.5}
+.chat-bubble.user{background:var(--burg);color:var(--cream);border-bottom-right-radius:4px}
+.chat-bubble.ai{background:var(--bg);color:var(--burg);border:1px solid rgba(212,175,119,.3);border-bottom-left-radius:4px}
+.typing-dots{display:flex;gap:4px;align-items:center;padding:10px 14px}
+.typing-dot{width:7px;height:7px;border-radius:50%;background:var(--text2);animation:typingDot 1.4s infinite ease-in-out}
+.typing-dot:nth-child(1){animation-delay:0s}
+.typing-dot:nth-child(2){animation-delay:.2s}
+.typing-dot:nth-child(3){animation-delay:.4s}
+@keyframes typingDot{0%,60%,100%{transform:scale(.7);opacity:.5}30%{transform:scale(1);opacity:1}}
+.chat-chips{padding:0 12px 10px;display:flex;flex-wrap:wrap;gap:6px}
+.chat-chip{background:var(--bg2);color:var(--burg);border:none;padding:5px 11px;border-radius:16px;font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
+.chat-chip:hover{background:var(--burg);color:var(--cream)}
+.chat-input-row{padding:12px;border-top:1px solid var(--bg2);display:flex;gap:8px;flex-shrink:0}
+.chat-input{flex:1;background:var(--bg);border:1.5px solid var(--bg2);border-radius:24px;padding:9px 16px;font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--burg);outline:none;transition:border-color .2s}
+.chat-input:focus{border-color:var(--gold)}
+.chat-send{width:38px;height:38px;background:var(--burg);border:none;border-radius:50%;cursor:pointer;color:var(--cream);display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+.chat-send:hover{background:var(--burg2)}
+.chat-send:disabled{opacity:.4;cursor:not-allowed}
+.chat-empty{text-align:center;padding:40px 20px;color:var(--text2)}
+.chat-empty svg{margin:0 auto 12px;display:block;opacity:.25}
+.chat-empty p{font-size:14px;line-height:1.6}
+
+/* ── ADMIN PANEL ── */
+.admin-overlay{position:fixed;inset:0;background:var(--bg);z-index:500;overflow-y:auto;transform:translateX(100%);transition:transform .4s cubic-bezier(.77,0,.175,1)}
+.admin-overlay.open{transform:translateX(0)}
+.admin-login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.admin-login-box{background:var(--cream);border-radius:20px;padding:40px;max-width:400px;width:100%;box-shadow:0 16px 48px rgba(74,44,42,.12);text-align:center}
+.admin-login-box h2{font-family:'Playfair Display',serif;font-size:26px;color:var(--burg);margin-bottom:6px}
+.admin-login-box p{color:var(--text2);font-size:14px;margin-bottom:28px}
+.login-field{margin-bottom:14px;text-align:left}
+.login-field label{display:block;font-size:13px;font-weight:600;color:var(--text2);margin-bottom:5px}
+.login-field input{width:100%;padding:11px 14px;border:1.5px solid var(--bg2);border-radius:10px;font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--burg);background:var(--bg);outline:none;transition:border-color .2s}
+.login-field input:focus{border-color:var(--gold)}
+.login-error{color:#e74c3c;font-size:13px;text-align:left;margin-top:6px;display:none}
+.admin-btn{width:100%;background:var(--burg);color:var(--cream);border:none;padding:13px;border-radius:12px;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;cursor:pointer;transition:all .2s;margin-top:8px}
+.admin-btn:hover{background:var(--burg2)}
+.admin-btn.secondary{background:transparent;border:1.5px solid var(--burg);color:var(--burg);margin-top:10px}
+.admin-btn.secondary:hover{background:var(--burg);color:var(--cream)}
+.admin-panel{max-width:1200px;margin:0 auto;padding:24px}
+.admin-topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px}
+.admin-topbar h1{font-family:'Playfair Display',serif;font-size:26px;color:var(--burg)}
+.admin-topbar p{font-size:14px;color:var(--text2)}
+.admin-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:28px}
+.stat-card{background:var(--cream);border-radius:12px;padding:16px;box-shadow:0 2px 10px rgba(74,44,42,.06)}
+.stat-label{font-size:12px;color:var(--text2);margin-bottom:4px}
+.stat-val{font-family:'Playfair Display',serif;font-size:24px;font-weight:700}
+.stat-val.burg{color:var(--burg)}
+.stat-val.green{color:#27ae60}
+.stat-val.red{color:#e74c3c}
+.stat-val.gold{color:var(--gold2)}
+.admin-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.action-btn{padding:9px 18px;border-radius:24px;font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;border:none}
+.action-btn.green{background:#d4edda;color:#155724}
+.action-btn.green:hover{background:#27ae60;color:#fff}
+.action-btn.red{background:#f8d7da;color:#721c24}
+.action-btn.red:hover{background:#e74c3c;color:#fff}
+.action-btn.gold{background:var(--gold);color:var(--burg)}
+.action-btn.gold:hover{background:var(--gold2)}
+.admin-table-wrap{background:var(--cream);border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(74,44,42,.06)}
+.admin-table{width:100%;border-collapse:collapse}
+.admin-table th{padding:14px 16px;text-align:left;font-size:12px;font-weight:700;color:var(--text2);letter-spacing:.5px;background:var(--bg2);text-transform:uppercase}
+.admin-table td{padding:12px 16px;border-bottom:1px solid var(--bg2);vertical-align:middle}
+.admin-table tr:last-child td{border-bottom:none}
+.admin-table tr:hover td{background:var(--bg)}
+.inline-input{width:80px;padding:5px 8px;border:1px solid var(--bg2);border-radius:6px;font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--burg);background:var(--bg);outline:none;transition:border-color .2s}
+.inline-input:focus{border-color:var(--gold)}
+.stock-toggle{padding:7px 14px;border-radius:20px;border:none;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;min-width:110px}
+.stock-toggle.in{background:#d4edda;color:#155724}
+.stock-toggle.in:hover{background:#27ae60;color:#fff}
+.stock-toggle.out{background:#f8d7da;color:#721c24}
+.stock-toggle.out:hover{background:#e74c3c;color:#fff}
+.book-cover-thumb{width:36px;height:52px;object-fit:cover;border-radius:4px;flex-shrink:0}
+.book-thumb-ph{width:36px;height:52px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0}
+.book-info-cell{display:flex;align-items:center;gap:10px}
+.disc-badge{background:#fff0f0;color:#c0392b;font-size:11px;font-weight:700;padding:2px 7px;border-radius:8px}
+/* Add book modal */
+.modal-form .form-group{margin-bottom:14px}
+.modal-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.checkbox-row{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.checkbox-row input{width:16px;height:16px;accent-color:var(--burg)}
+.checkbox-row label{font-size:14px;color:var(--burg)}
+.saved-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--burg);color:var(--cream);padding:10px 20px;border-radius:24px;font-size:14px;font-weight:600;z-index:600;opacity:0;pointer-events:none;transition:opacity .3s}
+.saved-toast.show{opacity:1}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .nav-links{display:none}
+  .nav-social{display:none}
+  .search-wrap{display:none}
+  .btn-visit{display:none}
+  .hamburger{display:flex}
+}
+@media(max-width:768px){
+  .slide-content{flex-direction:column;text-align:center;padding:0 20px}
+  .floating-books{display:none}
+  .about-inner{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .book-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .payment-options{grid-template-columns:1fr}
+  .admin-table th:nth-child(3),.admin-table td:nth-child(3){display:none}
+  .floating-social{display:none}
+  .hero{margin-top:88px}
+}
+@media(max-width:480px){
+  .footer-grid{grid-template-columns:1fr}
+  .floating-books{display:none}
+  .nav-inner{padding:0 16px}
+}
+
+/* ── UTILS ── */
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+svg.icon{display:inline-block;vertical-align:middle;fill:currentColor}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BANNER -->
+<div id="banner">
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>✨ FREE Delivery on orders above NPR 2000 across Nepal!</span>
+      <span>📚 Buy 2 Get 1 Free on all Nepali Literature titles!</span>
+      <span>⚡ Flash Sale: 20% OFF on Mystery &amp; Thriller — Today Only!</span>
+      <span>🎁 Gift wrapping available — perfect for book lovers</span>
+      <span>🌟 New arrivals every Friday — Follow @bookverse.np</span>
+      <span>✨ FREE Delivery on orders above NPR 2000 across Nepal!</span>
+      <span>📚 Buy 2 Get 1 Free on all Nepali Literature titles!</span>
+      <span>⚡ Flash Sale: 20% OFF on Mystery &amp; Thriller — Today Only!</span>
+      <span>🎁 Gift wrapping available — perfect for book lovers</span>
+      <span>🌟 New arrivals every Friday — Follow @bookverse.np</span>
+    </div>
+  </div>
+  <button id="banner-close" onclick="closeBanner()" aria-label="Close banner">×</button>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <button class="nav-logo" onclick="scrollToTop()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+      Bookverse <span style="color:var(--gold)">✨</span>
+    </button>
+    <div class="nav-links">
+      <button onclick="scrollToTop()">Home</button>
+      <button onclick="scrollTo('library')">Library</button>
+      <button onclick="scrollTo('new-arrivals')">New Arrivals</button>
+      <button onclick="scrollTo('best-sellers')">Best Sellers</button>
+      <button onclick="scrollTo('about')">About</button>
+    </div>
+    <div class="nav-right">
+      <div class="nav-social">
+        <a href="https://instagram.com/bookverse.np" target="_blank" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://tiktok.com/@bookverse.np" target="_blank" aria-label="TikTok">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+        </a>
+        <a href="https://facebook.com/bookverse.np" target="_blank" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+      </div>
+      <div class="search-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="nav-search" placeholder="Search books..." oninput="handleNavSearch(this.value)">
+      </div>
+      <button class="cart-btn" id="cart-btn" onclick="openCart()" aria-label="Open cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.95-1.57l1.65-8.42H6"/></svg>
+        <span class="cart-count" id="cart-count" style="display:none">0</span>
+      </button>
+      <button class="btn-visit" onclick="scrollTo('about')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Visit Us
+      </button>
+      <button class="btn-visit" onclick="openLogin()" style="background:transparent;color:var(--burg);border:1.5px solid var(--burg);margin-left:4px">Sign In</button>
+      <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <button onclick="closeMobileMenu();scrollToTop()">Home</button>
+  <button onclick="closeMobileMenu();scrollTo('library')">Library</button>
+  <button onclick="closeMobileMenu();scrollTo('new-arrivals')">New Arrivals</button>
+  <button onclick="closeMobileMenu();scrollTo('best-sellers')">Best Sellers</button>
+  <button onclick="closeMobileMenu();scrollTo('about')">About & Visit Us</button>
+  <div class="mobile-menu-socials">
+    <a href="https://instagram.com/bookverse.np" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/></svg> IG
+    </a>
+    <a href="https://tiktok.com/@bookverse.np" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg> TikTok
+    </a>
+    <a href="https://facebook.com/bookverse.np" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg> FB
+    </a>
+  </div>
+  <div class="mobile-menu-bottom">
+    <button class="mobile-signup-btn" onclick="closeMobileMenu();openSignup()">Create Account ✨</button>
+    <button class="mobile-login-btn" onclick="closeMobileMenu();openLogin()">Sign In</button>
+  </div>
+</div>
+
+<!-- HERO CAROUSEL -->
+<div class="hero" id="hero">
+  <div class="slides-track" id="slides-track">
+
+    <!-- Slide 1: Newly Added -->
+    <div class="slide">
+      <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1920&q=80')"></div>
+      <div class="slide-overlay" style="background:linear-gradient(135deg,rgba(74,44,42,.88) 0%,rgba(42,26,24,.7) 100%)"></div>
+      <div class="slide-content">
+        <div class="slide-text">
+          <span class="badge" style="background:var(--gold);color:var(--burg)">JUST IN ✨</span>
+          <h2 style="color:var(--cream)">Fresh Pages,<br>New Adventures</h2>
+          <p style="color:rgba(253,248,242,.8)">Discover the latest additions to our cozy collection</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <button class="btn-gold" onclick="scrollTo('new-arrivals')">Explore New Arrivals →</button>
+            <button class="btn-outline" onclick="scrollTo('library')">Browse Library</button>
+          </div>
+        </div>
+        <div class="floating-books" id="slide1-books"></div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Bestsellers -->
+    <div class="slide">
+      <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=1920&q=80')"></div>
+      <div class="slide-overlay" style="background:linear-gradient(135deg,rgba(212,175,119,.9) 0%,rgba(74,44,42,.8) 100%)"></div>
+      <div class="slide-content">
+        <div class="slide-text">
+          <span class="badge" style="background:var(--burg);color:var(--cream)">🔥 BESTSELLERS</span>
+          <h2 style="color:var(--burg2)">What Kathmandu<br>is Reading Now</h2>
+          <p style="color:rgba(42,26,24,.8)">The most loved books in our store this week</p>
+          <button class="btn-primary" onclick="scrollTo('best-sellers')">Shop Bestsellers →</button>
+        </div>
+        <div class="floating-books" id="slide2-books"></div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Flash Sale -->
+    <div class="slide">
+      <div class="slide-bg" style="background:#1a0d0c"></div>
+      <div class="slide-overlay" style="background:linear-gradient(135deg,rgba(42,26,24,.95) 0%,rgba(74,44,42,.9) 100%)"></div>
+      <div class="slide-content" style="flex-direction:column;text-align:center">
+        <span class="badge" style="background:var(--gold);color:var(--burg);animation:pulse 1.5s infinite">⚡ FLASH SALE — TODAY ONLY</span>
+        <h2 style="color:var(--cream)">20% OFF Mystery<br>&amp; Thriller</h2>
+        <p style="color:rgba(253,248,242,.7);margin:0 auto 20px;max-width:400px">Dive into suspense at unbeatable prices. Limited time offer!</p>
+        <div class="countdown" id="countdown">
+          <div class="count-box"><span class="count-num" id="cnt-h">23</span><span class="count-label">HRS</span></div>
+          <div class="count-box"><span class="count-num" id="cnt-m">59</span><span class="count-label">MIN</span></div>
+          <div class="count-box"><span class="count-num" id="cnt-s">59</span><span class="count-label">SEC</span></div>
+        </div>
+        <button class="btn-gold" onclick="setGenreFilter('Mystery');scrollTo('library')">Grab the Deal →</button>
+      </div>
+    </div>
+
+    <!-- Slide 4: Gift a Story -->
+    <div class="slide">
+      <div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=1920&q=80')"></div>
+      <div class="slide-overlay" style="background:linear-gradient(135deg,rgba(138,154,142,.85) 0%,rgba(245,237,225,.8) 100%)"></div>
+      <div class="slide-content" style="flex-direction:column;text-align:center">
+        <span class="badge" style="background:var(--burg);color:var(--cream)">🎁 GIFT BOOKISH MAGIC</span>
+        <h2 style="color:var(--burg)">Give Someone You Love<br>the Gift of a Story</h2>
+        <p style="color:var(--burg2);max-width:440px;margin:0 auto 28px">Free gift wrapping available. Bookmark add-ons. Personal message cards.</p>
+        <button class="btn-primary" onclick="scrollTo('library')">Shop Gift Sets →</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Carousel controls -->
+  <button class="carousel-arrow left" onclick="prevSlide()" aria-label="Previous slide">‹</button>
+  <button class="carousel-arrow right" onclick="nextSlide()" aria-label="Next slide">›</button>
+  <div class="carousel-dots" id="carousel-dots">
+    <button class="dot active" onclick="goToSlide(0)"></button>
+    <button class="dot" onclick="goToSlide(1)"></button>
+    <button class="dot" onclick="goToSlide(2)"></button>
+    <button class="dot" onclick="goToSlide(3)"></button>
+  </div>
+</div>
+
+<!-- GENRE PILLS -->
+<section class="genre-section">
+  <div class="genre-section-inner">
+    <div class="genre-scroll" id="genre-pills"></div>
+  </div>
+</section>
+
+<!-- NEW ARRIVALS ROW -->
+<section class="h-section" id="new-arrivals">
+  <div class="h-section-inner">
+    <div class="section-header">
+      <div class="section-title">📖 Newly Added</div>
+      <button class="see-all" onclick="setGenreFilter('New Arrivals');scrollTo('library')">See all →</button>
+    </div>
+    <div class="h-scroll-wrap">
+      <button class="h-arrow left" onclick="scrollH('new-arrivals-scroll',-1)">‹</button>
+      <div class="h-scroll" id="new-arrivals-scroll"></div>
+      <button class="h-arrow right" onclick="scrollH('new-arrivals-scroll',1)">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- BESTSELLERS ROW -->
+<section class="h-section" style="background:var(--cream)" id="best-sellers">
+  <div class="h-section-inner">
+    <div class="section-header">
+      <div class="section-title">🔥 Top Selling This Week</div>
+      <button class="see-all" onclick="setGenreFilter('Bestsellers');scrollTo('library')">See all →</button>
+    </div>
+    <div class="h-scroll-wrap">
+      <button class="h-arrow left" onclick="scrollH('best-sellers-scroll',-1)">‹</button>
+      <div class="h-scroll" id="best-sellers-scroll"></div>
+      <button class="h-arrow right" onclick="scrollH('best-sellers-scroll',1)">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- LIBRARY SECTION -->
+<section class="library-section" id="library">
+  <div class="library-inner">
+    <h2 class="section-title" style="margin-bottom:20px">The Library</h2>
+    <div class="library-search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text2);flex-shrink:0"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="lib-search" placeholder="Search by title or author..." oninput="renderLibrary()">
+    </div>
+    <div class="book-grid" id="book-grid"></div>
+    <div style="text-align:center;margin-top:32px">
+      <button class="btn-primary" id="load-more-btn" onclick="loadMore()" style="display:none">Load More Books</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div>
+      <span class="about-badge">✨ About Us</span>
+      <h2>Gift Bookish Magic</h2>
+      <p>Nestled in the heart of Kathmandu, Bookverse is your cozy corner of literary magic. We're a small indie bookstore passionate about connecting readers with hidden gems, beloved classics, and the finest Nepali literature.</p>
+      <div class="about-socials">
+        <a href="https://instagram.com/bookverse.np" target="_blank" class="social-btn ig">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+          @bookverse.np
+        </a>
+        <a href="https://wa.me/9779803123989" target="_blank" class="social-btn wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          9803123989
+        </a>
+        <a href="https://facebook.com/bookverse.np" target="_blank" class="social-btn" style="background:rgba(255,255,255,.1);color:var(--cream);border:1px solid rgba(255,255,255,.2)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          Facebook
+        </a>
+        <a href="https://tiktok.com/@bookverse.np" target="_blank" class="social-btn" style="background:rgba(255,255,255,.1);color:var(--cream);border:1px solid rgba(255,255,255,.2)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+          TikTok
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="store-status-box">
+        <div class="status-indicator">
+          <div class="status-dot" id="status-dot"></div>
+          <div>
+            <div class="status-text" id="status-text">Checking...</div>
+            <div class="status-next" id="status-next"></div>
+          </div>
+        </div>
+        <div class="hours-grid">
+          <div class="hour-row"><span>Sunday – Friday</span><span style="color:var(--gold)">10:00 AM – 8:00 PM</span></div>
+          <div class="hour-row"><span>Saturday</span><span style="color:var(--gold)">11:00 AM – 9:00 PM</span></div>
+          <div class="hour-row"><span>Location</span><span style="color:var(--gold)">Civil Mall, Level 4</span></div>
+        </div>
+        <div class="maps-embed">
+          <iframe src="https://maps.google.com/maps?q=Civil+Mall+Kathmandu&output=embed" width="100%" height="220" style="border-radius:8px" loading="lazy"></iframe>
+        </div>
+        <a href="https://maps.google.com/?q=Civil+Mall+Kathmandu" target="_blank" class="directions-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Get Directions
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-socials">
+      <h3>Follow Our Bookish World</h3>
+      <div class="footer-social-icons">
+        <a href="https://instagram.com/bookverse.np" target="_blank" class="footer-social-icon ig">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor"/></svg>
+          Instagram
+        </a>
+        <a href="https://tiktok.com/@bookverse.np" target="_blank" class="footer-social-icon tt">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+          TikTok
+        </a>
+        <a href="https://facebook.com/bookverse.np" target="_blank" class="footer-social-icon fb">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          Facebook
+        </a>
+      </div>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          Bookverse ✨
+        </div>
+        <p class="footer-tagline">Small indie bookstore in the heart of Kathmandu. We deliver stories across Nepal. Come for a book, stay for the magic.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><button onclick="scrollToTop()">Home</button></li>
+          <li><button onclick="scrollTo('library')">Library</button></li>
+          <li><button onclick="scrollTo('new-arrivals')">New Arrivals</button></li>
+          <li><button onclick="scrollTo('best-sellers')">Best Sellers</button></li>
+          <li><button onclick="scrollTo('about')">About</button></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold)"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Civil Mall, Level 4, Kathmandu</span></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold)"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.1 2.24 2 2 0 012.07.06h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg><a href="tel:9803123989" style="color:inherit">9803123989</a></li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold)"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/></svg><a href="https://instagram.com/bookverse.np" target="_blank" style="color:inherit">@bookverse.np</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Store Hours</h4>
+        <ul>
+          <li style="display:block;padding:3px 0">Sun – Fri: 10AM – 8PM</li>
+          <li style="display:block;padding:3px 0">Saturday: 11AM – 9PM</li>
+          <li style="display:block;padding:8px 0 0">
+            <span id="footer-status" style="font-size:13px;font-weight:600"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="payment-row">
+      <span style="font-size:13px;opacity:.6">We Accept:</span>
+      <span class="esewa-logo">eSewa</span>
+      <span class="khalti-logo">khalti</span>
+      <span class="cod-logo">Cash on Delivery</span>
+    </div>
+    <div class="footer-bottom">
+      <p>© Bookverse 2026 — Made with bookish love in Nepal 📚</p>
+      <button class="seller-login-btn" onclick="openAdmin()">Seller Login</button>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING ELEMENTS -->
+<a href="https://wa.me/9779803123989" target="_blank" class="floating-wa" title="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<button class="floating-chat" id="chat-toggle-btn" onclick="toggleChat()" title="Ask Bookverse AI">
+  <span class="chat-tooltip">Ask Bookverse ✨</span>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="12" y2="13"/></svg>
+</button>
+
+<div class="floating-social" id="floating-social">
+  <a href="https://instagram.com/bookverse.np" target="_blank" title="Instagram">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/></svg>
+  </a>
+  <a href="https://tiktok.com/@bookverse.np" target="_blank" title="TikTok">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+  </a>
+  <a href="https://facebook.com/bookverse.np" target="_blank" title="Facebook">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+  </a>
+</div>
+
+<!-- CHATBOT PANEL -->
+<div class="chat-panel" id="chat-panel">
+  <div class="chat-head">
+    <div class="chat-head-info">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(212,175,119,.9)" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+      <div>
+        <div class="chat-head-title">Bookverse AI — Paige ✨</div>
+        <div class="chat-head-sub">Powered by Claude · Knows everything about our store</div>
+      </div>
+    </div>
+    <button class="close-btn" onclick="toggleChat()" style="color:rgba(253,248,242,.8)">×</button>
+  </div>
+  <div class="chat-messages" id="chat-messages">
+    <div class="chat-empty">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+      <p>Hello! I'm Paige, your bookish assistant. Ask me about our books, delivery, store hours, or anything else!</p>
+    </div>
+  </div>
+  <div class="chat-chips" id="chat-chips">
+    <button class="chat-chip" onclick="sendChatMsg(this.textContent)">What's in stock?</button>
+    <button class="chat-chip" onclick="sendChatMsg(this.textContent)">How does delivery work?</button>
+    <button class="chat-chip" onclick="sendChatMsg(this.textContent)">Do you gift wrap?</button>
+    <button class="chat-chip" onclick="sendChatMsg(this.textContent)">Store hours?</button>
+    <button class="chat-chip" onclick="sendChatMsg(this.textContent)">Recommend a book for me</button>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chat-input" type="text" placeholder="Ask about books, delivery, offers..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="chat-send" id="chat-send" onclick="sendChat()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cart-sidebar">
+  <div class="cart-header">
+    <h3>Your Cart 🛒</h3>
+    <button class="close-btn" onclick="closeCart()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="cart-items" id="cart-items-list"></div>
+  <div class="delivery-bar">
+    <div class="delivery-progress">
+      <div class="delivery-text" id="delivery-text">Add more to get free delivery!</div>
+      <div class="progress-bg"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+      <div class="free-label" id="free-label" style="display:none">✓ Free delivery unlocked!</div>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="subtotal-row">
+      <span class="subtotal-label">Subtotal</span>
+      <span class="subtotal-val" id="cart-subtotal">NPR 0</span>
+    </div>
+    <button class="btn-checkout" onclick="openCheckout()">
+      Proceed to Checkout
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+    <div class="trust-badges">
+      <span class="trust-badge">🔒 Secure</span>
+      <span class="trust-badge">🚚 Nepal Delivery</span>
+      <span class="trust-badge">↩️ Easy Returns</span>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkout-overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>Complete Your Order ✨</h3>
+      <button class="close-btn" onclick="closeCheckout()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="order-summary" id="order-summary-list"></div>
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input class="form-input" type="text" placeholder="Your name" id="co-name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Delivery Address</label>
+        <input class="form-input" type="text" placeholder="Street, City, District" id="co-address">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="form-group">
+          <label class="form-label">Phone</label>
+          <input class="form-input" type="tel" placeholder="98XXXXXXXX" id="co-phone">
+        </div>
+        <div class="form-group">
+          <label class="form-label">WhatsApp</label>
+          <input class="form-input" type="tel" placeholder="98XXXXXXXX" id="co-whatsapp">
+        </div>
+      </div>
+      <div class="payment-section">
+        <div class="payment-label">Payment Method</div>
+        <div class="payment-options">
+          <div class="payment-card esewa" onclick="selectPayment('esewa',this)">
+            <div style="background:#60BB46;color:#fff;padding:5px 10px;border-radius:6px;font-size:14px;font-weight:700">eSewa</div>
+            <div class="payment-name" style="color:var(--burg)">eSewa</div>
+          </div>
+          <div class="payment-card khalti" onclick="selectPayment('khalti',this)">
+            <div style="background:#5C2D91;color:#fff;padding:5px 10px;border-radius:6px;font-size:14px;font-weight:700">khalti</div>
+            <div class="payment-name" style="color:var(--burg)">Khalti</div>
+          </div>
+          <div class="payment-card cod selected" onclick="selectPayment('cod',this)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            <div class="payment-name" style="color:#fff">Cash on Delivery</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn-place" onclick="placeOrder()">Place Order ✨</button>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="success-overlay">
+  <div class="modal-box">
+    <div class="success-modal">
+      <span class="success-icon">✨</span>
+      <h2>Order Placed!</h2>
+      <p>Thank you! We'll confirm your order on WhatsApp shortly. Your story is on its way!</p>
+      <a href="https://wa.me/9779803123989" target="_blank" class="btn-gold" style="display:inline-flex;margin-bottom:12px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat on WhatsApp
+      </a>
+      <br>
+      <button class="btn-primary" onclick="closeSuccess()">Continue Browsing →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-overlay" id="admin-overlay">
+  <div id="admin-login-screen">
+    <div class="admin-login">
+      <div class="admin-login-box">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--burg)" stroke-width="2" style="margin:0 auto 16px;display:block"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        <h2>Seller Login</h2>
+        <p>Bookverse Staff Portal</p>
+        <div class="login-field">
+          <label>Username</label>
+          <input type="text" id="admin-username" placeholder="bookverse_admin">
+        </div>
+        <div class="login-field">
+          <label>Password</label>
+          <input type="password" id="admin-password" placeholder="••••••••••••" onkeydown="if(event.key==='Enter')doAdminLogin()">
+          <div class="login-error" id="login-error">Invalid username or password.</div>
+        </div>
+        <button class="admin-btn" onclick="doAdminLogin()">Login to Dashboard</button>
+        <button class="admin-btn secondary" onclick="closeAdmin()">Back to Store</button>
+      </div>
+    </div>
+  </div>
+  <div id="admin-dashboard-screen" style="display:none">
+    <div class="admin-panel">
+      <div class="admin-topbar">
+        <div>
+          <h1>Bookverse Admin ✨</h1>
+          <p>Inventory & Offer Manager</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="action-btn gold" onclick="logout()">Logout</button>
+          <button class="action-btn" style="background:var(--bg2);color:var(--burg)" onclick="closeAdmin()">← Back to Store</button>
+        </div>
+      </div>
+      <div class="admin-stats" id="admin-stats"></div>
+      <div class="admin-actions">
+        <button class="action-btn green" onclick="bulkStock(true)">✅ Mark All In Stock</button>
+        <button class="action-btn red" onclick="bulkStock(false)">❌ Mark All Out of Stock</button>
+        <button class="action-btn gold" onclick="openAddBook()">+ Add New Book</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr>
+            <th>Book</th>
+            <th>Price (NPR)</th>
+            <th>MRP (NPR)</th>
+            <th>Stock</th>
+            <th>Status</th>
+          </tr></thead>
+          <tbody id="admin-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADD BOOK MODAL -->
+<div class="modal-overlay" id="add-book-overlay">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>Add New Book</h3>
+      <button class="close-btn" onclick="closeAddBook()">×</button>
+    </div>
+    <div class="modal-body modal-form">
+      <div class="form-group"><label class="form-label">Title</label><input class="form-input" id="nb-title" placeholder="Book title"></div>
+      <div class="form-group"><label class="form-label">Author</label><input class="form-input" id="nb-author" placeholder="Author name"></div>
+      <div class="form-group">
+        <label class="form-label">Genre</label>
+        <select class="form-input" id="nb-genre">
+          <option>Fiction</option><option>Non-Fiction</option><option>Nepali Literature</option>
+          <option>Mystery</option><option>Romance</option><option>Sci-Fi</option>
+          <option>Children</option><option>Self-Help</option><option>History</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label class="form-label">Sale Price (NPR)</label><input class="form-input" id="nb-price" type="number" placeholder="799"></div>
+        <div class="form-group"><label class="form-label">MRP (NPR)</label><input class="form-input" id="nb-mrp" type="number" placeholder="999"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Cover Image URL (optional)</label><input class="form-input" id="nb-cover" placeholder="https://..."></div>
+      <div class="form-group"><label class="form-label">Stock Count</label><input class="form-input" id="nb-stock" type="number" placeholder="10"></div>
+      <div class="checkbox-row"><input type="checkbox" id="nb-new"><label for="nb-new">Mark as New Arrival</label></div>
+      <div class="checkbox-row"><input type="checkbox" id="nb-bs"><label for="nb-bs">Mark as Bestseller</label></div>
+      <button class="btn-place" onclick="submitNewBook()">Add Book ✨</button>
+    </div>
+  </div>
+</div>
+
+<!-- COMING SOON CATALOGUE BANNER -->
+<div style="background:linear-gradient(135deg,var(--burg) 0%,var(--burg2) 100%);padding:48px 24px;text-align:center">
+  <div style="max-width:640px;margin:0 auto">
+    <div style="display:inline-block;background:rgba(212,175,119,.2);border:1px solid rgba(212,175,119,.4);color:var(--gold);padding:5px 18px;border-radius:24px;font-size:13px;font-weight:700;letter-spacing:.5px;margin-bottom:16px">📚 FULL CATALOGUE COMING SOON</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--cream);margin-bottom:14px">Our Complete Book List is on Its Way</h2>
+    <p style="color:rgba(253,248,242,.75);font-size:16px;line-height:1.7;margin-bottom:28px">We're busy adding every book on our shelves to the digital library. Sign up to be notified the moment our full catalogue goes live — and get <strong style="color:var(--gold)">10% off your first order!</strong></p>
+    <div style="display:flex;gap:10px;max-width:400px;margin:0 auto;flex-wrap:wrap">
+      <input type="email" id="notify-email" placeholder="your@email.com" style="flex:1;min-width:180px;padding:12px 18px;border:1.5px solid rgba(212,175,119,.3);border-radius:32px;font-family:'Cormorant Garamond',serif;font-size:15px;background:rgba(255,255,255,.08);color:var(--cream);outline:none">
+      <button onclick="subscribeNotify()" style="background:var(--gold);color:var(--burg);border:none;padding:12px 22px;border-radius:32px;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;cursor:pointer;white-space:nowrap">Notify Me ✨</button>
+    </div>
+    <p style="color:rgba(253,248,242,.4);font-size:12px;margin-top:12px">No spam. Just books. Unsubscribe any time.</p>
+  </div>
+</div>
+
+<!-- SIGN IN MODAL -->
+<div class="modal-overlay" id="login-overlay">
+  <div class="modal-box" style="max-width:420px">
+    <div class="modal-header">
+      <h3>Welcome Back ✨</h3>
+      <button class="close-btn" onclick="closeLogin()">×</button>
+    </div>
+    <div class="modal-body">
+      <p style="color:var(--text2);font-size:15px;margin-bottom:24px;line-height:1.6">Sign in to track your orders, save your wishlist, and get personalised book recommendations.</p>
+      <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" id="login-email" placeholder="your@email.com"></div>
+      <div class="form-group"><label class="form-label">Password</label><input class="form-input" type="password" id="login-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
+      <button class="btn-place" onclick="doLogin()">Sign In</button>
+      <p style="text-align:center;margin-top:16px;font-size:14px;color:var(--text2)">Don't have an account? <button onclick="closeLogin();openSignup()" style="background:none;border:none;color:var(--gold2);font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;cursor:pointer">Create one →</button></p>
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--bg2);text-align:center">
+        <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Or reach us directly</p>
+        <a href="https://wa.me/977XXXXXXXXXX" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:10px 20px;border-radius:24px;text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+          WhatsApp Us to Order
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SIGN UP MODAL -->
+<div class="modal-overlay" id="signup-overlay">
+  <div class="modal-box" style="max-width:440px">
+    <div class="modal-header">
+      <h3>Join Bookverse ✨</h3>
+      <button class="close-btn" onclick="closeSignup()">×</button>
+    </div>
+    <div class="modal-body">
+      <p style="color:var(--text2);font-size:15px;margin-bottom:24px;line-height:1.6">Create your account and get <strong style="color:var(--gold2)">10% off your first order</strong> with code <strong style="color:var(--burg)">BOOK10</strong>.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" id="su-first" placeholder="Sita"></div>
+        <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text" id="su-last" placeholder="Sharma"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" id="su-email" placeholder="your@email.com"></div>
+      <div class="form-group"><label class="form-label">Phone / WhatsApp</label><input class="form-input" type="tel" id="su-phone" placeholder="98XXXXXXXX"></div>
+      <div class="form-group"><label class="form-label">Password</label><input class="form-input" type="password" id="su-pass" placeholder="Min 8 characters"></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;margin:12px 0 20px">
+        <input type="checkbox" id="su-agree" style="margin-top:3px;width:16px;height:16px;accent-color:var(--burg);flex-shrink:0">
+        <label for="su-agree" style="font-size:13px;color:var(--text2);line-height:1.5;cursor:pointer">I agree to receive order updates and bookish news via WhatsApp/email. No spam, ever.</label>
+      </div>
+      <button class="btn-place" onclick="doSignup()">Create My Account ✨</button>
+      <p style="text-align:center;margin-top:16px;font-size:14px;color:var(--text2)">Already have an account? <button onclick="closeSignup();openLogin()" style="background:none;border:none;color:var(--gold2);font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;cursor:pointer">Sign in →</button></p>
+    </div>
+  </div>
+</div>
+
+<div class="saved-toast" id="saved-toast">✓ Saved!</div>
+
+<script>
+// ══════════════════════════════════════════════════════════
+// DATA
+// ══════════════════════════════════════════════════════════
+
+const coverColors = [
+  ['#4A2C2A','#D4AF77'],['#2C4A3E','#A8D5BA'],['#2A3A4A','#D4AF77'],['#4A3A2A','#F5EDE1'],
+  ['#3A2A4A','#D4AF77'],['#4A2A3A','#F5EDE1'],['#2A4A4A','#D4AF77'],['#1A2A3A','#A8D5BA'],
+  ['#4A3A1A','#F5EDE1'],['#3A1A2A','#D4AF77'],['#2A4A2A','#F5EDE1'],['#4A2C2A','#A8D5BA']
+];
+
+const DEFAULT_BOOKS = [
+  {id:'1',title:'The Midnight Library',author:'Matt Haig',price:850,mrp:1099,genre:'Fiction',inStock:true,stockCount:15,isNew:true,isBestSeller:true,rating:4.5,soldThisWeek:47,cover:''},
+  {id:'2',title:'Palpasa Cafe',author:'Narayan Wagle',price:450,mrp:599,genre:'Nepali Literature',inStock:true,stockCount:23,isBestSeller:true,rating:4.8,soldThisWeek:89,cover:''},
+  {id:'3',title:'Where the Crawdads Sing',author:'Delia Owens',price:950,mrp:1299,genre:'Mystery',inStock:true,stockCount:8,isNew:true,rating:4.3,soldThisWeek:34,cover:''},
+  {id:'4',title:'Seto Dharti',author:'Amar Neupane',price:550,mrp:750,genre:'Nepali Literature',inStock:false,stockCount:0,rating:4.6,soldThisWeek:12,cover:''},
+  {id:'5',title:'The Alchemist',author:'Paulo Coelho',price:650,mrp:899,genre:'Fiction',inStock:true,stockCount:45,isBestSeller:true,rating:4.7,soldThisWeek:156,cover:''},
+  {id:'6',title:'Norwegian Wood',author:'Haruki Murakami',price:780,mrp:999,genre:'Fiction',inStock:true,stockCount:12,rating:4.4,soldThisWeek:28,cover:''},
+  {id:'7',title:'Karnali Blues',author:'Buddhisagar',price:400,mrp:550,genre:'Nepali Literature',inStock:true,stockCount:67,isBestSeller:true,rating:4.9,soldThisWeek:203,cover:''},
+  {id:'8',title:'The Very Hungry Caterpillar',author:'Eric Carle',price:520,mrp:699,genre:'Children',inStock:true,stockCount:34,rating:4.8,soldThisWeek:45,cover:''},
+  {id:'9',title:'Atomic Habits',author:'James Clear',price:890,mrp:1199,genre:'Self-Help',inStock:false,stockCount:0,isBestSeller:true,rating:4.6,soldThisWeek:78,cover:''},
+  {id:'10',title:'Murder on the Orient Express',author:'Agatha Christie',price:720,mrp:950,genre:'Mystery',inStock:true,stockCount:3,rating:4.5,soldThisWeek:56,cover:''},
+  {id:'11',title:'Summer Bird Blue',author:'Akemi Dawn Bowman',price:680,mrp:899,genre:'Romance',inStock:true,stockCount:18,isNew:true,rating:4.2,soldThisWeek:23,cover:''},
+  {id:'12',title:'Goodnight Moon',author:'Margaret Wise Brown',price:380,mrp:499,genre:'Children',inStock:false,stockCount:0,rating:4.7,soldThisWeek:67,cover:''},
+  {id:'13',title:'Sapiens',author:'Yuval Noah Harari',price:999,mrp:1299,genre:'History',inStock:true,stockCount:20,isBestSeller:true,rating:4.6,soldThisWeek:88,cover:''},
+  {id:'14',title:'Muna Madan',author:'Laxmi Prasad Devkota',price:299,mrp:399,genre:'Nepali Literature',inStock:true,stockCount:55,rating:4.9,soldThisWeek:120,cover:''},
+  {id:'15',title:'The Hobbit',author:'J.R.R. Tolkien',price:699,mrp:899,genre:'Fiction',inStock:true,stockCount:22,isNew:true,rating:4.8,soldThisWeek:44,cover:''},
+  {id:'16',title:'Ikigai',author:'Francesc Miralles',price:699,mrp:899,genre:'Self-Help',inStock:true,stockCount:31,isBestSeller:true,rating:4.5,soldThisWeek:72,cover:''},
+];
+
+const GENRES = ['All','Fiction','Non-Fiction','Nepali Literature','Mystery','Romance','Sci-Fi','Children','Self-Help','History','New Arrivals','Bestsellers'];
+
+const URGENCY = [
+  b => b.stockCount>0&&b.stockCount<=5 ? `⚡ Only ${b.stockCount} left!` : null,
+  b => b.soldThisWeek>100 ? `🔥 ${b.soldThisWeek} sold this week` : null,
+  b => b.soldThisWeek>0 ? `✅ ${b.soldThisWeek} sold this week` : null,
+];
+
+const BOOKMARKS = [
+  {id:'ribbon',name:'Classic Ribbon',color:'#c0392b'},
+  {id:'floral',name:'Floral',color:'#e91e8c'},
+  {id:'map',name:'Vintage Map',color:'#c8a87a'},
+  {id:'moon',name:'Moonphase',color:'#34495e'},
+  {id:'nepal',name:'Nepal Mountain',color:'#8A9A8E'},
+  {id:'gold',name:'Gold Minimal',color:'#D4AF77'},
+];
+
+const WRAPS = [
+  {id:'newspaper',name:'Vintage Newspaper',color:'#c8a87a'},
+  {id:'kraft',name:'Kraft + Twine',color:'#8B6914'},
+  {id:'silk',name:'Silk Ribbon',color:'#F0E6D3'},
+];
+
+// ══════════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════════
+
+let books = JSON.parse(localStorage.getItem('bv_books')||'null') || DEFAULT_BOOKS;
+let cart = [];
+let activeGenre = 'All';
+let libSearch = '';
+let visibleCount = 8;
+let selectedPayment = 'cod';
+let chatHistory = [];
+let chatOpen = false;
+let currentSlide = 0;
+let countdownSecs = 86399;
+let cardExtras = {}; // {bookId: {bookmark, giftWrap, message, wrapStyle}}
+
+function saveBooks(){localStorage.setItem('bv_books',JSON.stringify(books))}
+function getBookColor(idx){return coverColors[idx%coverColors.length]}
+
+// ══════════════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════════════
+
+window.onload=()=>{
+  renderGenrePills();
+  renderHorizontalSections();
+  renderLibrary();
+  renderSlideBooks();
+  updateStoreStatus();
+  setInterval(updateStoreStatus,60000);
+  startCountdown();
+  startCarousel();
+  window.addEventListener('scroll',onScroll);
+  if(localStorage.getItem('bv_banner_closed')==='1'){
+    document.getElementById('banner').style.display='none';
+    document.getElementById('navbar').style.top='0';
+  }
+  // Exit intent
+  setTimeout(()=>{
+    if(!sessionStorage.getItem('bv_promo_shown')){
+      showToast('📚 Use code BOOK10 for 10% off your order!',4000);
+      sessionStorage.setItem('bv_promo_shown','1');
+    }
+  },30000);
+};
+
+// ══════════════════════════════════════════════════════════
+// SCROLL & NAV
+// ══════════════════════════════════════════════════════════
+
+function onScroll(){
+  const nav=document.getElementById('navbar');
+  if(window.scrollY>60) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+  const fsc=document.getElementById('floating-social');
+  if(window.scrollY>300) fsc.classList.add('visible'); else fsc.classList.remove('visible');
+}
+
+function scrollToTop(){
+  window.scrollTo({top:0,behavior:'smooth'});
+  activeGenre='All';
+  libSearch='';
+  document.getElementById('lib-search').value='';
+  document.getElementById('nav-search').value='';
+  renderGenrePills();
+  renderLibrary();
+}
+
+function scrollTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'})}
+
+function closeBanner(){
+  document.getElementById('banner').style.display='none';
+  document.getElementById('navbar').style.top='0';
+  localStorage.setItem('bv_banner_closed','1');
+}
+
+function handleNavSearch(v){
+  libSearch=v;
+  renderLibrary();
+  if(v) scrollTo('library');
+}
+
+// ══════════════════════════════════════════════════════════
+// GENRE PILLS
+// ══════════════════════════════════════════════════════════
+
+function renderGenrePills(){
+  const c=document.getElementById('genre-pills');
+  c.innerHTML=GENRES.map(g=>`<button class="genre-pill${activeGenre===g?' active':''}" onclick="setGenreFilter('${g}')">${g}</button>`).join('');
+}
+
+function setGenreFilter(g){
+  activeGenre=g;
+  renderGenrePills();
+  renderLibrary();
+  scrollTo('library');
+}
+
+// ══════════════════════════════════════════════════════════
+// BOOK CARD HTML
+// ══════════════════════════════════════════════════════════
+
+function bookCoverHTML(book,idx){
+  if(book.cover&&book.cover.startsWith('http')){
+    return `<img class="book-cover" src="${book.cover}" alt="${book.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="book-cover-placeholder" style="background:${getBookColor(idx)[0]};color:${getBookColor(idx)[1]};display:none">${book.title.split(' ').slice(0,3).join(' ')}</div>`;
+  }
+  return `<div class="book-cover-placeholder" style="background:${getBookColor(idx)[0]};color:${getBookColor(idx)[1]}">${book.title.split(' ').slice(0,3).join(' ')}</div>`;
+}
+
+function urgencyText(book){
+  for(const fn of URGENCY){const t=fn(book);if(t)return t;}
+  return `👁️ ${book.soldThisWeek||Math.floor(Math.random()*20+5)} people interested`;
+}
+
+function starsHTML(r){
+  const full=Math.floor(r),half=r%1>=.5?1:0;
+  return '★'.repeat(full)+(half?'½':'')+'☆'.repeat(5-full-half);
+}
+
+function discPct(p,m){return m>p?Math.round((1-p/m)*100):0}
+
+function bookCardHTML(book,idx,small=false){
+  const disc=discPct(book.price,book.mrp);
+  const extras=cardExtras[book.id]||{};
+  const bmAdd=extras.bookmark?50:0;
+  const gwAdd=extras.giftWrap?150:0;
+  return `
+  <div class="book-card${small?'':' grid-card'}" data-id="${book.id}">
+    <div style="position:relative">
+      ${bookCoverHTML(book,idx)}
+      <div class="card-badges">
+        ${book.isNew?'<span class="badge-new">NEW</span>':''}
+        ${book.isBestSeller?'<span class="badge-bs">🔥 BESTSELLER</span>':''}
+      </div>
+      ${disc>0?`<span class="badge-disc">-${disc}%</span>`:''}
+    </div>
+    <div class="card-body">
+      <div class="card-title">${book.title}</div>
+      <div class="card-author">${book.author}</div>
+      <div class="card-rating"><span class="stars">${starsHTML(book.rating)}</span><span class="rating-num">${book.rating}</span></div>
+      <div class="card-price">
+        <span class="price-sale">NPR ${(book.price+bmAdd+gwAdd).toLocaleString()}</span>
+        ${book.mrp>book.price?`<span class="price-mrp">NPR ${book.mrp.toLocaleString()}</span>`:''}
+      </div>
+      <div class="stock-badge ${book.inStock?'in':'out'}">${book.inStock?'✅ In Stock':'❌ Out of Stock'}</div>
+      <div class="urgency">${urgencyText(book)}</div>
+      <div class="card-actions">
+        ${book.inStock
+          ?`<button class="btn-cart" id="btn-cart-${book.id}" onclick="addToCart('${book.id}')">🛒 Add to Cart</button>`
+          :`<button class="btn-notify" onclick="notifyMe('${book.title}')">🔔 Notify Me</button>`}
+      </div>
+      <div class="extras-section">
+        ${extrasHTML(book.id)}
+      </div>
+    </div>
+  </div>`;
+}
+
+function extrasHTML(bookId){
+  const e=cardExtras[bookId]||{};
+  return `
+  <div class="extras-toggle" style="margin-top:8px">
+    <button class="extras-btn${e.bookmark?' active':''}" onclick="toggleExtrasPanel('bm-${bookId}',this)">🔖 Bookmark${e.bookmark?` (${e.bookmark.name})`:'?'}</button>
+    <button class="extras-btn${e.giftWrap?' active':''}" onclick="toggleExtrasPanel('gw-${bookId}',this)">🎁 Gift Wrap${e.giftWrap?' ✓':''}</button>
+  </div>
+  <div id="bm-${bookId}" style="display:none" class="extras-panel">
+    <div class="extras-label">Choose a bookmark (+NPR 50)</div>
+    <div class="bookmark-grid">
+      ${BOOKMARKS.map(bm=>`
+        <div class="bookmark-opt${e.bookmark&&e.bookmark.id===bm.id?' selected':''}" onclick="selectBookmark('${bookId}','${bm.id}','${bm.name}','${bm.color}')">
+          <div class="bookmark-color" style="background:${bm.color}"></div>
+          <div class="bookmark-name">${bm.name}</div>
+        </div>`).join('')}
+    </div>
+    ${e.bookmark?`<button onclick="removeBookmark('${bookId}')" style="background:none;border:none;color:#e74c3c;font-size:11px;cursor:pointer;margin-top:6px">× Remove bookmark</button>`:''}
+  </div>
+  <div id="gw-${bookId}" style="display:none" class="extras-panel">
+    <div class="extras-label">Choose gift wrap (+NPR 150)</div>
+    <div class="wrap-grid">
+      ${WRAPS.map(w=>`
+        <div class="wrap-opt${e.giftWrap&&e.giftWrap===w.id?' selected':''}" onclick="selectWrap('${bookId}','${w.id}','${w.name}')">
+          <div class="wrap-swatch" style="background:${w.color}"></div>
+          <div class="wrap-name">${w.name}</div>
+        </div>`).join('')}
+    </div>
+    ${e.giftWrap?`
+    <div class="msg-wrap">
+      <div class="extras-label">Personal message (optional)</div>
+      <textarea maxlength="100" id="msg-${bookId}" placeholder="Write a message..." oninput="updateMsg('${bookId}',this.value)">${e.message||''}</textarea>
+      <div class="char-count" id="msgc-${bookId}">${(e.message||'').length}/100</div>
+    </div>
+    <button onclick="removeGiftWrap('${bookId}')" style="background:none;border:none;color:#e74c3c;font-size:11px;cursor:pointer">× Remove gift wrap</button>`:''}
+  </div>`;
+}
+
+function toggleExtrasPanel(id,btn){
+  const el=document.getElementById(id);
+  if(!el)return;
+  const showing=el.style.display==='block';
+  // close all extras panels in same card first
+  const card=btn.closest('.book-card');
+  card.querySelectorAll('.extras-panel').forEach(p=>p.style.display='none');
+  el.style.display=showing?'none':'block';
+}
+
+function selectBookmark(bookId,bmId,bmName,bmColor){
+  if(!cardExtras[bookId])cardExtras[bookId]={};
+  cardExtras[bookId].bookmark={id:bmId,name:bmName,color:bmColor};
+  reRenderCard(bookId);
+}
+
+function removeBookmark(bookId){
+  if(cardExtras[bookId])delete cardExtras[bookId].bookmark;
+  reRenderCard(bookId);
+}
+
+function selectWrap(bookId,wrapId,wrapName){
+  if(!cardExtras[bookId])cardExtras[bookId]={};
+  cardExtras[bookId].giftWrap=wrapId;
+  cardExtras[bookId].giftWrapName=wrapName;
+  reRenderCard(bookId);
+}
+
+function removeGiftWrap(bookId){
+  if(cardExtras[bookId]){delete cardExtras[bookId].giftWrap;delete cardExtras[bookId].giftWrapName;delete cardExtras[bookId].message;}
+  reRenderCard(bookId);
+}
+
+function updateMsg(bookId,val){
+  if(!cardExtras[bookId])cardExtras[bookId]={};
+  cardExtras[bookId].message=val;
+  const c=document.getElementById(`msgc-${bookId}`);
+  if(c)c.textContent=val.length+'/100';
+}
+
+function reRenderCard(bookId){
+  // Find all card containers for this bookId and re-render extras only
+  document.querySelectorAll(`[data-id="${bookId}"]`).forEach(card=>{
+    const es=card.querySelector('.extras-section');
+    if(es)es.innerHTML=extrasHTML(bookId);
+  });
+  renderCart();
+}
+
+// ══════════════════════════════════════════════════════════
+// HORIZONTAL SECTIONS
+// ══════════════════════════════════════════════════════════
+
+function renderHorizontalSections(){
+  const newBooks=books.filter(b=>b.isNew).slice(0,6);
+  const bsBooks=books.filter(b=>b.isBestSeller).slice(0,6);
+  const naEl=document.getElementById('new-arrivals-scroll');
+  const bsEl=document.getElementById('best-sellers-scroll');
+  if(naEl)naEl.innerHTML=newBooks.map((b,i)=>bookCardHTML(b,i,true)).join('');
+  if(bsEl)bsEl.innerHTML=bsBooks.map((b,i)=>{
+    const html=bookCardHTML(b,i,true);
+    // add rank badge
+    return html.replace('class="book-card"',`class="book-card" style="position:relative"`).replace(
+      '<div class="card-badges">',
+      `<div class="rank-badge" style="position:absolute;top:-8px;left:-8px;z-index:3">#${i+1}</div><div class="card-badges">`
+    );
+  }).join('');
+}
+
+function scrollH(id,dir){
+  const el=document.getElementById(id);
+  if(el)el.scrollBy({left:dir*220,behavior:'smooth'});
+}
+
+// ══════════════════════════════════════════════════════════
+// LIBRARY
+// ══════════════════════════════════════════════════════════
+
+function renderLibrary(){
+  const q=(libSearch||document.getElementById('lib-search')?.value||'').toLowerCase();
+  let filtered=books.filter(b=>{
+    const matchSearch=!q||b.title.toLowerCase().includes(q)||b.author.toLowerCase().includes(q);
+    let matchGenre=true;
+    if(activeGenre==='New Arrivals')matchGenre=b.isNew;
+    else if(activeGenre==='Bestsellers')matchGenre=b.isBestSeller;
+    else if(activeGenre!=='All')matchGenre=b.genre===activeGenre;
+    return matchSearch&&matchGenre;
+  });
+  const grid=document.getElementById('book-grid');
+  if(!grid)return;
+  const shown=filtered.slice(0,visibleCount);
+  grid.innerHTML=shown.map((b,i)=>bookCardHTML(b,i)).join('');
+  const lm=document.getElementById('load-more-btn');
+  if(lm)lm.style.display=filtered.length>visibleCount?'inline-flex':'none';
+}
+
+function loadMore(){visibleCount+=8;renderLibrary()}
+
+// ══════════════════════════════════════════════════════════
+// CART
+// ══════════════════════════════════════════════════════════
+
+function addToCart(bookId){
+  const book=books.find(b=>b.id===bookId);
+  if(!book||!book.inStock)return;
+  const extras=cardExtras[bookId]||{};
+  const existing=cart.find(i=>i.id===bookId);
+  if(existing){existing.qty++;} 
+  else{
+    cart.push({
+      id:bookId,title:book.title,author:book.author,price:book.price,
+      cover:book.cover,qty:1,
+      bookmark:extras.bookmark||null,
+      giftWrap:extras.giftWrap||null,
+      giftWrapName:extras.giftWrapName||null,
+      message:extras.message||null,
+      coverIdx:books.indexOf(book)
+    });
+  }
+  // Button flash
+  const btn=document.getElementById(`btn-cart-${bookId}`);
+  if(btn){btn.textContent='✓ Added!';btn.classList.add('added');setTimeout(()=>{btn.textContent='🛒 Add to Cart';btn.classList.remove('added')},1500);}
+  // Cart bounce
+  const cb=document.getElementById('cart-btn');
+  cb.classList.add('bounce');setTimeout(()=>cb.classList.remove('bounce'),600);
+  updateCartCount();
+  renderCart();
+  showToast(`"${book.title}" added to cart!`,2000);
+}
+
+function notifyMe(title){
+  showToast(`We'll WhatsApp you when "${title}" is back in stock!`,3000);
+}
+
+function updateCartCount(){
+  const total=cart.reduce((s,i)=>s+i.qty,0);
+  const el=document.getElementById('cart-count');
+  el.textContent=total;
+  el.style.display=total>0?'flex':'none';
+}
+
+function openCart(){
+  document.getElementById('cart-overlay').classList.add('open');
+  document.getElementById('cart-sidebar').classList.add('open');
+  document.body.style.overflow='hidden';
+  renderCart();
+}
+
+function closeCart(){
+  document.getElementById('cart-overlay').classList.remove('open');
+  document.getElementById('cart-sidebar').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function cartItemTotal(item){
+  return (item.price+(item.bookmark?50:0)+(item.giftWrap?150:0))*item.qty;
+}
+
+function cartGrandTotal(){return cart.reduce((s,i)=>s+cartItemTotal(i),0)}
+
+function renderCart(){
+  const el=document.getElementById('cart-items-list');
+  if(!el)return;
+  if(cart.length===0){
+    el.innerHTML=`<div class="empty-cart">
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.95-1.57l1.65-8.42H6"/></svg>
+      <p>Your cart is empty</p>
+      <button class="btn-primary" onclick="closeCart();scrollTo('library')">Browse Books →</button>
+    </div>`;
+    document.getElementById('cart-subtotal').textContent='NPR 0';
+    updateDeliveryBar(0);
+    return;
+  }
+  el.innerHTML=cart.map(item=>`
+    <div class="cart-item">
+      ${item.cover&&item.cover.startsWith('http')
+        ?`<img class="cart-item-img" src="${item.cover}" alt="${item.title}" loading="lazy">`
+        :`<div class="cart-item-img-ph" style="background:${getBookColor(item.coverIdx||0)[0]};color:${getBookColor(item.coverIdx||0)[1]}">${item.title.split(' ')[0]}</div>`}
+      <div class="cart-item-info">
+        <div class="cart-item-title">${item.title}</div>
+        <div class="cart-item-author">${item.author}</div>
+        ${item.bookmark?`<div class="cart-item-addon">🔖 ${item.bookmark.name} +NPR 50</div>`:''}
+        ${item.giftWrap?`<div class="cart-item-addon">🎁 ${item.giftWrapName} +NPR 150${item.message?`<br><em style="font-size:10px">"${item.message}"</em>`:''}</div>`:''}
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
+          <div class="qty-control">
+            <button class="qty-btn" onclick="updateQty('${item.id}',-1)">−</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="updateQty('${item.id}',1)">+</button>
+          </div>
+          <span class="item-price">NPR ${cartItemTotal(item).toLocaleString()}</span>
+          <button class="remove-btn" onclick="removeItem('${item.id}')" title="Remove">×</button>
+        </div>
+      </div>
+    </div>`).join('');
+  const total=cartGrandTotal();
+  document.getElementById('cart-subtotal').textContent=`NPR ${total.toLocaleString()}`;
+  updateDeliveryBar(total);
+}
+
+function updateDeliveryBar(total){
+  const threshold=2000;
+  const pct=Math.min(100,Math.round(total/threshold*100));
+  document.getElementById('progress-fill').style.width=pct+'%';
+  if(total>=threshold){
+    document.getElementById('delivery-text').textContent='Free delivery unlocked!';
+    document.getElementById('free-label').style.display='block';
+  } else {
+    const rem=threshold-total;
+    document.getElementById('delivery-text').textContent=`Add NPR ${rem.toLocaleString()} more for free delivery!`;
+    document.getElementById('free-label').style.display='none';
+  }
+}
+
+function updateQty(bookId,delta){
+  const item=cart.find(i=>i.id===bookId);
+  if(!item)return;
+  item.qty+=delta;
+  if(item.qty<=0)cart=cart.filter(i=>i.id!==bookId);
+  updateCartCount();
+  renderCart();
+}
+
+function removeItem(bookId){
+  cart=cart.filter(i=>i.id!==bookId);
+  updateCartCount();
+  renderCart();
+}
+
+// ══════════════════════════════════════════════════════════
+// CHECKOUT
+// ══════════════════════════════════════════════════════════
+
+function openCheckout(){
+  closeCart();
+  const ol=document.getElementById('order-summary-list');
+  const total=cartGrandTotal();
+  const delivery=total>=2000?0:150;
+  ol.innerHTML=`
+    ${cart.map(i=>`<div class="order-row"><span>${i.title} × ${i.qty}${i.bookmark?' + bookmark':''}${i.giftWrap?' + gift wrap':''}</span><span>NPR ${cartItemTotal(i).toLocaleString()}</span></div>`).join('')}
+    <div class="order-row"><span>Delivery</span><span>${delivery===0?'<span style="color:#27ae60">FREE</span>':`NPR ${delivery}`}</span></div>
+    <div class="order-total"><span>Total</span><span>NPR ${(total+delivery).toLocaleString()}</span></div>`;
+  document.getElementById('checkout-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeCheckout(){
+  document.getElementById('checkout-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function selectPayment(method,el){
+  selectedPayment=method;
+  document.querySelectorAll('.payment-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function placeOrder(){
+  const name=document.getElementById('co-name').value.trim();
+  const address=document.getElementById('co-address').value.trim();
+  const phone=document.getElementById('co-phone').value.trim();
+  if(!name||!address||!phone){showToast('Please fill in all required fields',2500);return;}
+  closeCheckout();
+  cart=[];
+  updateCartCount();
+  renderCart();
+  launchConfetti();
+  document.getElementById('success-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeSuccess(){
+  document.getElementById('success-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function launchConfetti(){
+  const colors=['#D4AF77','#4A2C2A','#8A9A8E','#F5EDE1','#c0392b'];
+  for(let i=0;i<50;i++){
+    const el=document.createElement('div');
+    el.className='confetti-piece';
+    el.style.cssText=`left:${Math.random()*100}%;background:${colors[Math.floor(Math.random()*colors.length)]};top:0;animation-delay:${Math.random()*.5}s;animation-duration:${2+Math.random()*2}s`;
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),4000);
+  }
+}
+
+// ══════════════════════════════════════════════════════════
+// STORE STATUS
+// ══════════════════════════════════════════════════════════
+
+function updateStoreStatus(){
+  const np=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Kathmandu'}));
+  const h=np.getHours(),m=np.getMinutes(),day=np.getDay();
+  const openH=10,closeH=day===6?21:20,openSat=11;
+  const open_time=day===6?openSat:openH;
+  const now_mins=h*60+m,open_mins=open_time*60,close_mins=closeH*60;
+  const isOpen=now_mins>=open_mins&&now_mins<close_mins;
+  const closingSoon=isOpen&&(close_mins-now_mins)<=30;
+  const openingSoon=!isOpen&&now_mins<open_mins&&(open_mins-now_mins)<=30;
+  const dot=document.getElementById('status-dot');
+  const text=document.getElementById('status-text');
+  const next=document.getElementById('status-next');
+  const footer=document.getElementById('footer-status');
+  if(closingSoon){
+    dot.className='status-dot soon';
+    text.textContent='Closing Soon';
+    next.textContent=`Closes at ${closeH>12?closeH-12:closeH}:00 ${closeH>=12?'PM':'AM'}`;
+    if(footer)footer.innerHTML='🟡 Closing Soon';
+  } else if(openingSoon){
+    dot.className='status-dot soon';
+    text.textContent='Opening Soon';
+    next.textContent=`Opens at ${open_time}:00 AM`;
+    if(footer)footer.innerHTML='🟡 Opening Soon';
+  } else if(isOpen){
+    dot.className='status-dot open';
+    text.textContent='Open Now ✨';
+    next.textContent=`Closes at ${closeH>12?closeH-12:closeH}:00 ${closeH>=12?'PM':'AM'} (Nepal Time)`;
+    if(footer)footer.innerHTML='<span style="color:#2ecc71">🟢 Open Now</span>';
+  } else {
+    dot.className='status-dot closed';
+    text.textContent='Closed';
+    next.textContent=`Opens tomorrow at ${openH}:00 AM`;
+    if(footer)footer.innerHTML='<span style="color:#e74c3c">🔴 Closed</span>';
+  }
+}
+
+// ══════════════════════════════════════════════════════════
+// CAROUSEL
+// ══════════════════════════════════════════════════════════
+
+function renderSlideBooks(){
+  const newBooks=books.filter(b=>b.isNew).slice(0,3);
+  const bsBooks=books.filter(b=>b.isBestSeller).slice(0,3);
+  const s1=document.getElementById('slide1-books');
+  const s2=document.getElementById('slide2-books');
+  if(s1)s1.innerHTML=newBooks.map((b,i)=>`
+    <div class="float-book" style="transform:rotate(${(i-1)*5}deg)">
+      ${b.cover&&b.cover.startsWith('http')
+        ?`<img src="${b.cover}" alt="${b.title}" loading="lazy" onerror="this.style.display='none'">`
+        :`<div style="width:100px;height:150px;background:${getBookColor(i)[0]};border-radius:6px;display:flex;align-items:center;justify-content:center;color:${getBookColor(i)[1]};font-size:11px;font-weight:700;text-align:center;padding:8px;box-shadow:0 12px 32px rgba(0,0,0,.4)">${b.title.split(' ').slice(0,3).join(' ')}</div>`}
+      <span class="new-badge">NEW</span>
+    </div>`).join('');
+  if(s2)s2.innerHTML=bsBooks.map((b,i)=>`
+    <div class="float-book">
+      ${b.cover&&b.cover.startsWith('http')
+        ?`<img src="${b.cover}" alt="${b.title}" loading="lazy" onerror="this.style.display='none'">`
+        :`<div style="width:100px;height:150px;background:${getBookColor(i)[0]};border-radius:6px;display:flex;align-items:center;justify-content:center;color:${getBookColor(i)[1]};font-size:11px;font-weight:700;text-align:center;padding:8px;box-shadow:0 12px 32px rgba(0,0,0,.4)">${b.title.split(' ').slice(0,3).join(' ')}</div>`}
+      <span class="rank-badge">#${i+1}</span>
+    </div>`).join('');
+}
+
+function goToSlide(n){
+  currentSlide=n;
+  document.getElementById('slides-track').style.transform=`translateX(-${n*100}%)`;
+  document.querySelectorAll('.dot').forEach((d,i)=>{d.className='dot'+(i===n?' active':'');});
+}
+
+function nextSlide(){goToSlide((currentSlide+1)%4)}
+function prevSlide(){goToSlide((currentSlide+3)%4)}
+
+let carouselTimer;
+function startCarousel(){
+  carouselTimer=setInterval(nextSlide,5000);
+  document.querySelector('.hero').addEventListener('mouseenter',()=>clearInterval(carouselTimer));
+  document.querySelector('.hero').addEventListener('mouseleave',()=>{clearInterval(carouselTimer);carouselTimer=setInterval(nextSlide,5000);});
+}
+
+// Touch swipe on hero
+let touchStartX=0;
+document.addEventListener('DOMContentLoaded',()=>{
+  const hero=document.getElementById('hero');
+  if(hero){
+    hero.addEventListener('touchstart',e=>{touchStartX=e.touches[0].clientX},{passive:true});
+    hero.addEventListener('touchend',e=>{
+      const dx=e.changedTouches[0].clientX-touchStartX;
+      if(Math.abs(dx)>50){dx<0?nextSlide():prevSlide();}
+    },{passive:true});
+  }
+});
+
+// ══════════════════════════════════════════════════════════
+// COUNTDOWN
+// ══════════════════════════════════════════════════════════
+
+function startCountdown(){
+  // Start from current time to midnight Nepal time
+  const np=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Kathmandu'}));
+  const midnight=new Date(np);midnight.setHours(24,0,0,0);
+  countdownSecs=Math.floor((midnight-np)/1000);
+  function tick(){
+    if(countdownSecs<=0)countdownSecs=86399;
+    const h=Math.floor(countdownSecs/3600),m=Math.floor((countdownSecs%3600)/60),s=countdownSecs%60;
+    const pad=n=>String(n).padStart(2,'0');
+    const ch=document.getElementById('cnt-h'),cm=document.getElementById('cnt-m'),cs=document.getElementById('cnt-s');
+    if(ch)ch.textContent=pad(h);
+    if(cm)cm.textContent=pad(m);
+    if(cs)cs.textContent=pad(s);
+    countdownSecs--;
+  }
+  tick();setInterval(tick,1000);
+}
+
+// ══════════════════════════════════════════════════════════
+// CHATBOT
+// ══════════════════════════════════════════════════════════
+
+function toggleChat(){
+  chatOpen=!chatOpen;
+  document.getElementById('chat-panel').classList.toggle('open',chatOpen);
+}
+
+function sendChatMsg(text){
+  document.getElementById('chat-input').value=text;
+  sendChat();
+}
+
+async function sendChat(){
+  const input=document.getElementById('chat-input');
+  const text=input.value.trim();
+  if(!text)return;
+  input.value='';
+  document.getElementById('chat-chips').style.display='none';
+
+  appendChatMsg('user',text);
+  chatHistory.push({role:'user',content:text});
+
+  const typing=appendTyping();
+  document.getElementById('chat-send').disabled=true;
+
+  const inventory=books.map(b=>`"${b.title}" by ${b.author} — NPR ${b.price} — ${b.inStock?'IN STOCK':'OUT OF STOCK'} — ${b.genre}`).join('\n');
+
+  const systemPrompt=`You are Paige — the witty, warm, deeply literary AI assistant for Bookverse ✨, a cozy vintage indie bookstore at Civil Mall, Level 4, Kathmandu, Nepal.
+
+PERSONALITY: You are like that one bookstore friend who has read everything. Give genuinely helpful, specific answers. NEVER give the same answer twice. Match the customer's emotional tone. Occasionally drop bookish metaphors but never forced.
+
+STORE INFO:
+- Instagram: @bookverse.np | TikTok: @bookverse.np | Facebook: bookverse.np
+- WhatsApp: 9803123989 | Hours: Sun–Fri 10AM–8PM, Sat 11AM–9PM (Nepal Time)
+- Location: Civil Mall, Level 4, Kathmandu
+- Delivery: FREE across Nepal above NPR 2000. Same-day Kathmandu if ordered before 5PM.
+- Payment: Cash on Delivery, eSewa, Khalti
+- Gift wrap: +NPR 150 (Vintage Newspaper / Kraft+Twine / Silk Ribbon Box)
+- Bookmarks: +NPR 50 (Classic Ribbon, Floral, Vintage Map, Moonphase, Nepal Mountain, Gold Minimal)
+- Returns: 7 days, original condition
+- Promo: BOOK10 = 10% off, Buy 2 Get 1 Free on Nepali Literature, 20% off Mystery/Thriller
+
+LIVE INVENTORY:
+${inventory}
+
+RULES:
+1. For book recs — ask 1 smart clarifying question first (mood? last loved? gift or self?)
+2. For stock — check inventory and answer accurately
+3. For gifts — suggest book + bookmark + gift wrap combos
+4. Keep replies under 120 words unless detailed rec needed
+5. End with exactly ONE emoji that varies each time
+6. NEVER say "I don't have that information" if the answer is above`;
+
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key': (window.ANTHROPIC_API_KEY||''),
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
+      },
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:600,
+        system:systemPrompt,
+        messages:chatHistory.slice(-12)
+      })
+    });
+    if(!res.ok)throw new Error('API error '+res.status);
+    const data=await res.json();
+    const reply=data.content?.[0]?.text||"Our assistant is on a tea break ☕ — WhatsApp us at 9803123989!";
+    typing.remove();
+    appendChatMsg('ai',reply);
+    chatHistory.push({role:'assistant',content:reply});
+  }catch(e){
+    typing.remove();
+    appendChatMsg('ai',"Our assistant is taking a tea break ☕ — WhatsApp us at 9803123989 for instant help!");
+  }
+  document.getElementById('chat-send').disabled=false;
+}
+
+function appendChatMsg(role,text){
+  const msgs=document.getElementById('chat-messages');
+  const empty=msgs.querySelector('.chat-empty');
+  if(empty)empty.remove();
+  const div=document.createElement('div');
+  div.className=`chat-msg ${role}`;
+  div.innerHTML=`<div class="chat-bubble ${role}">${text.replace(/\n/g,'<br>')}</div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+  return div;
+}
+
+function appendTyping(){
+  const msgs=document.getElementById('chat-messages');
+  const div=document.createElement('div');
+  div.className='chat-msg ai';
+  div.innerHTML=`<div class="chat-bubble ai"><div class="typing-dots"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+  return div;
+}
+
+// ══════════════════════════════════════════════════════════
+// ADMIN
+// ══════════════════════════════════════════════════════════
+
+let adminAttempts=0;
+
+function openAdmin(){
+  document.getElementById('admin-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  const auth=localStorage.getItem('bv_admin_auth');
+  if(auth){
+    const {expires}=JSON.parse(auth);
+    if(Date.now()<expires){showAdminDashboard();return;}
+  }
+  document.getElementById('admin-login-screen').style.display='block';
+  document.getElementById('admin-dashboard-screen').style.display='none';
+}
+
+function closeAdmin(){
+  document.getElementById('admin-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function doAdminLogin(){
+  const u=document.getElementById('admin-username').value;
+  const p=document.getElementById('admin-password').value;
+  const err=document.getElementById('login-error');
+  if(u==='bookverse_admin'&&p==='bookverse2026'){
+    localStorage.setItem('bv_admin_auth',JSON.stringify({expires:Date.now()+86400000}));
+    err.style.display='none';
+    adminAttempts=0;
+    showAdminDashboard();
+  } else {
+    adminAttempts++;
+    err.style.display='block';
+    err.textContent=adminAttempts>=3?'Too many attempts. Wait 30s.':'Invalid username or password.';
+    if(adminAttempts>=3){
+      document.querySelectorAll('#admin-login-screen input,#admin-login-screen button').forEach(el=>el.disabled=true);
+      setTimeout(()=>{adminAttempts=0;document.querySelectorAll('#admin-login-screen input,#admin-login-screen button').forEach(el=>el.disabled=false);err.style.display='none';},30000);
+    }
+    // Shake
+    const box=document.querySelector('.admin-login-box');
+    box.style.animation='none';
+    box.style.transform='translateX(8px)';
+    setTimeout(()=>{box.style.transform='translateX(-8px)';setTimeout(()=>{box.style.transform='';},100);},100);
+  }
+}
+
+function logout(){
+  localStorage.removeItem('bv_admin_auth');
+  document.getElementById('admin-login-screen').style.display='block';
+  document.getElementById('admin-dashboard-screen').style.display='none';
+  document.getElementById('admin-username').value='';
+  document.getElementById('admin-password').value='';
+}
+
+function showAdminDashboard(){
+  document.getElementById('admin-login-screen').style.display='none';
+  document.getElementById('admin-dashboard-screen').style.display='block';
+  renderAdminStats();
+  renderAdminTable();
+}
+
+function renderAdminStats(){
+  const inStock=books.filter(b=>b.inStock).length;
+  const outStock=books.filter(b=>!b.inStock).length;
+  const val=books.reduce((s,b)=>s+(b.price*(b.stockCount||0)),0);
+  document.getElementById('admin-stats').innerHTML=`
+    <div class="stat-card"><div class="stat-label">Total Books</div><div class="stat-val burg">${books.length}</div></div>
+    <div class="stat-card"><div class="stat-label">In Stock</div><div class="stat-val green">${inStock}</div></div>
+    <div class="stat-card"><div class="stat-label">Out of Stock</div><div class="stat-val red">${outStock}</div></div>
+    <div class="stat-card"><div class="stat-label">Inventory Value</div><div class="stat-val gold">NPR ${val.toLocaleString()}</div></div>`;
+}
+
+function renderAdminTable(){
+  const tbody=document.getElementById('admin-table-body');
+  if(!tbody)return;
+  tbody.innerHTML=books.map((b,i)=>{
+    const disc=discPct(b.price,b.mrp);
+    const coverEl=b.cover&&b.cover.startsWith('http')
+      ?`<img class="book-cover-thumb" src="${b.cover}" alt="${b.title}" loading="lazy" onerror="this.style.display='none'">`
+      :`<div class="book-thumb-ph" style="background:${getBookColor(i)[0]};color:${getBookColor(i)[1]}">${b.title[0]}</div>`;
+    return `<tr>
+      <td><div class="book-info-cell">${coverEl}<div><div style="font-weight:600;font-size:14px;color:var(--burg)">${b.title}</div><div style="font-size:12px;color:var(--text2)">${b.author}</div><div style="font-size:11px;color:var(--sage)">${b.genre}</div></div></div></td>
+      <td><input class="inline-input" type="number" value="${b.price}" onchange="adminUpdate('${b.id}','price',parseInt(this.value))" onblur="showSavedToast()"></td>
+      <td><div style="display:flex;align-items:center;gap:6px"><input class="inline-input" type="number" value="${b.mrp}" onchange="adminUpdate('${b.id}','mrp',parseInt(this.value))" onblur="showSavedToast()">${disc>0?`<span class="disc-badge">-${disc}%</span>`:''}</div></td>
+      <td><input class="inline-input" type="number" value="${b.stockCount||0}" style="width:64px" onchange="adminUpdateStock('${b.id}',parseInt(this.value))" onblur="showSavedToast()"></td>
+      <td><button class="stock-toggle ${b.inStock?'in':'out'}" onclick="adminToggleStock('${b.id}')">${b.inStock?'✅ In Stock':'❌ Out of Stock'}</button></td>
+    </tr>`;
+  }).join('');
+}
+
+function adminUpdate(id,field,val){
+  const book=books.find(b=>b.id===id);
+  if(book){book[field]=val;saveBooks();renderAdminStats();renderAdminTable();renderLibrary();renderHorizontalSections();}
+}
+
+function adminUpdateStock(id,val){
+  const book=books.find(b=>b.id===id);
+  if(book){book.stockCount=val;book.inStock=val>0;saveBooks();renderAdminStats();renderAdminTable();renderLibrary();renderHorizontalSections();}
+}
+
+function adminToggleStock(id){
+  const book=books.find(b=>b.id===id);
+  if(book){book.inStock=!book.inStock;if(!book.inStock)book.stockCount=0;else if(book.stockCount===0)book.stockCount=10;saveBooks();renderAdminStats();renderAdminTable();renderLibrary();renderHorizontalSections();showSavedToast();}
+}
+
+function bulkStock(val){
+  books.forEach(b=>{b.inStock=val;b.stockCount=val?10:0;});
+  saveBooks();renderAdminStats();renderAdminTable();renderLibrary();renderHorizontalSections();
+  showSavedToast(val?'All marked In Stock':'All marked Out of Stock');
+}
+
+function showSavedToast(msg){
+  const t=document.getElementById('saved-toast');
+  t.textContent=msg||'✓ Saved!';
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2000);
+}
+
+function openAddBook(){document.getElementById('add-book-overlay').classList.add('open');}
+function closeAddBook(){document.getElementById('add-book-overlay').classList.remove('open');}
+
+function submitNewBook(){
+  const title=document.getElementById('nb-title').value.trim();
+  const author=document.getElementById('nb-author').value.trim();
+  if(!title||!author){showToast('Title and author are required',2000);return;}
+  const book={
+    id:Date.now().toString(),
+    title,author,
+    genre:document.getElementById('nb-genre').value,
+    price:parseInt(document.getElementById('nb-price').value)||499,
+    mrp:parseInt(document.getElementById('nb-mrp').value)||699,
+    cover:document.getElementById('nb-cover').value.trim(),
+    stockCount:parseInt(document.getElementById('nb-stock').value)||10,
+    inStock:true,
+    isNew:document.getElementById('nb-new').checked,
+    isBestSeller:document.getElementById('nb-bs').checked,
+    rating:4.0,soldThisWeek:0,
+  };
+  book.inStock=book.stockCount>0;
+  books.push(book);
+  saveBooks();
+  closeAddBook();
+  renderAdminStats();renderAdminTable();renderLibrary();renderHorizontalSections();renderSlideBooks();
+  showSavedToast(`"${title}" added!`);
+  ['nb-title','nb-author','nb-price','nb-mrp','nb-cover','nb-stock'].forEach(id=>{document.getElementById(id).value='';});
+  document.getElementById('nb-new').checked=false;
+  document.getElementById('nb-bs').checked=false;
+}
+
+// ══════════════════════════════════════════════════════════
+// UTILS
+// ══════════════════════════════════════════════════════════
+
+function showToast(msg,dur){
+  const t=document.getElementById('saved-toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),dur||2000);
+}
+
+// Set API key — replace with your actual Anthropic API key
+// For production: set window.ANTHROPIC_API_KEY from your server/env
+window.ANTHROPIC_API_KEY = '';
+
+// ══════════════════════════════════════════════════════════
+// MOBILE MENU
+// ══════════════════════════════════════════════════════════
+function toggleMobileMenu(){
+  const hb=document.getElementById('hamburger');
+  const mm=document.getElementById('mobile-menu');
+  hb.classList.toggle('open');
+  mm.classList.toggle('open');
+  document.body.style.overflow=mm.classList.contains('open')?'hidden':'';
+}
+function closeMobileMenu(){
+  document.getElementById('hamburger')?.classList.remove('open');
+  document.getElementById('mobile-menu')?.classList.remove('open');
+  document.body.style.overflow='';
+}
+
+// ══════════════════════════════════════════════════════════
+// AUTH MODALS
+// ══════════════════════════════════════════════════════════
+function openLogin(){document.getElementById('login-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeLogin(){document.getElementById('login-overlay').classList.remove('open');document.body.style.overflow='';}
+function openSignup(){document.getElementById('signup-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeSignup(){document.getElementById('signup-overlay').classList.remove('open');document.body.style.overflow='';}
+
+function doLogin(){
+  const email=document.getElementById('login-email').value.trim();
+  const pass=document.getElementById('login-pass').value;
+  if(!email||!pass){showToast('Please fill in all fields',2000);return;}
+  closeLogin();
+  showToast('Welcome back! Signed in successfully ✨',3000);
+}
+
+function doSignup(){
+  const first=document.getElementById('su-first').value.trim();
+  const email=document.getElementById('su-email').value.trim();
+  const phone=document.getElementById('su-phone').value.trim();
+  const pass=document.getElementById('su-pass').value;
+  const agreed=document.getElementById('su-agree').checked;
+  if(!first||!email||!phone||!pass){showToast('Please fill in all required fields',2000);return;}
+  if(!agreed){showToast('Please agree to the terms to continue',2000);return;}
+  if(pass.length<8){showToast('Password must be at least 8 characters',2000);return;}
+  closeSignup();
+  showToast(`Welcome to Bookverse, ${first}! Use code BOOK10 for 10% off 📚`,4000);
+}
+
+function socialLogin(provider){
+  showToast(`${provider} sign-in coming soon! WhatsApp us to place orders directly ✨`,3500);
+}
+
+function subscribeNotify(){
+  const email=document.getElementById('notify-email').value.trim();
+  if(!email||!email.includes('@')){showToast('Please enter a valid email address',2000);return;}
+  document.getElementById('notify-email').value='';
+  showToast(`You're on the list! We'll notify ${email} when our full catalogue is live 📚`,4000);
+}
+
+// ⚠️  IMPORTANT: Before going live, replace all phone numbers in this file.
+// Search for "9803123989" and "9779803123989" and update to your real number.
+// WhatsApp link format: https://wa.me/977YOURNUMBER (country code 977, no spaces)
+
+</script>
+</body>
+</html>
